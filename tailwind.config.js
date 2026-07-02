@@ -1,0 +1,12 @@
+export default {
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './index.html'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
+      },
+    },
+  },
+  plugins: [],
+};
