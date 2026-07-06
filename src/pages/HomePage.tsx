@@ -4,8 +4,17 @@ import About from '../components/About';
 import Services from '../components/Services';
 import Contact from '../components/Contact';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+
+interface HomeStat {
+  value: string;
+  label: string;
+}
 
 export default function HomePage() {
+  const { t } = useTranslation('home');
+  const stats = t('stats', { returnObjects: true }) as HomeStat[];
+
   return (
     <main id="homepage-container-q1w2e3r4">
       <Hero />
@@ -33,10 +42,10 @@ export default function HomePage() {
              viewport={{ once: true }}
           >
             <h3 className="font-sans font-light text-stone-900 text-3xl md:text-5xl leading-tight">
-              "The best part of our wedding was seeing all the children 
-              <span className="font-display italic text-rose-500"> laughing and happy</span>, while we could truly relax with our friends."
+              {t('quotePart1')}
+              <span className="font-display italic text-rose-500"> {t('quoteHighlight')}</span>{t('quotePart2')}
             </h3>
-            <p className="mt-8 text-stone-500 font-medium tracking-widest uppercase text-sm">— Laura & Pau, Summer 2023</p>
+            <p className="mt-8 text-stone-500 font-medium tracking-widest uppercase text-sm">{t('quoteAuthor')}</p>
           </motion.div>
         </div>
       </section>
@@ -46,22 +55,12 @@ export default function HomePage() {
       <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h4 className="font-display italic text-3xl text-rose-500 mb-2">150+</h4>
-              <p className="text-stone-400 text-xs font-bold uppercase tracking-widest">Weddings Managed</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h4 className="font-display italic text-3xl text-rose-500 mb-2">12</h4>
-              <p className="text-stone-400 text-xs font-bold uppercase tracking-widest">Certified Caregivers</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h4 className="font-display italic text-3xl text-rose-500 mb-2">4.9/5</h4>
-              <p className="text-stone-400 text-xs font-bold uppercase tracking-widest">Parent Rating</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h4 className="font-display italic text-3xl text-rose-500 mb-2">Sants</h4>
-              <p className="text-stone-400 text-xs font-bold uppercase tracking-widest">Barcelona Base</p>
-            </div>
+            {stats.map((stat, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm">
+                <h4 className="font-display italic text-3xl text-rose-500 mb-2">{stat.value}</h4>
+                <p className="text-stone-400 text-xs font-bold uppercase tracking-widest">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

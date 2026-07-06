@@ -5,6 +5,7 @@ import {
   ReactNode,
 } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image';
@@ -37,6 +38,7 @@ const ScrollExpandMedia = ({
   const [touchStartY, setTouchStartY] = useState<number>(0);
   const [isMobileState, setIsMobileState] = useState<boolean>(false);
 
+  const { t } = useTranslation('hero');
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -157,7 +159,7 @@ const ScrollExpandMedia = ({
           >
             <img
               src={bgImageSrc}
-              alt='Background'
+              alt={t('backgroundAlt')}
               className='w-screen h-screen'
               style={{
                 objectFit: 'cover',

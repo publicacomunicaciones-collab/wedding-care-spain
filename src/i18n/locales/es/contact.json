@@ -1,0 +1,22 @@
+{
+  "heading1": "Solicita un",
+  "heading2": "presupuesto personalizado",
+  "intro": "Nos encantaría conocer los detalles de tu día especial. Rellena el formulario y nuestra coordinadora se pondrá en contacto contigo en menos de 24 horas para hablar de tus necesidades.",
+  "callUs": "Llámanos",
+  "emailUs": "Escríbenos",
+  "office": "Oficina",
+  "officeAddress": "Sants, Barcelona, ES",
+  "fullName": "Nombre Completo",
+  "emailAddress": "Correo Electrónico",
+  "weddingDate": "Fecha de la Boda",
+  "package": "Paquete",
+  "message": "Cuéntanos más (número aproximado de niños, lugar de celebración, etc.)",
+  "options": {
+    "essential": "Esencial",
+    "fullWedding": "Boda Completa",
+    "premium": "Premium",
+    "custom": "Solicitud Personalizada"
+  },
+  "submit": "SOLICITAR DISPONIBILIDAD",
+  "successMessage": "¡Gracias! Nos pondremos en contacto contigo en breve con tu presupuesto personalizado."
+}

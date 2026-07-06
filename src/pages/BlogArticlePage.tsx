@@ -1,70 +1,26 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { blogPostsMeta } from '../data/blogPosts';
 
-interface BlogPost {
-  id: number;
+interface BlogPostText {
   title: string;
   excerpt: string;
-  date: string;
-  author: string;
-  image: string;
+  body: string;
 }
 
 const BlogArticlePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation(['blogArticle', 'blogPosts', 'common']);
 
-  const blogPosts: BlogPost[] = [
-    {
-      id: 1,
-      title: 'Tips for Keeping Children Entertained During Weddings',
-      excerpt: 'Discover creative and fun activities to keep children engaged throughout the wedding ceremony and reception. From interactive games to thoughtful entertainment options, learn how to ensure every child has a memorable time at your celebration. We cover everything from pre-ceremony activities to reception entertainment that keeps kids smiling throughout the day. Creating a fun environment for children not only makes them happy but also allows parents to relax and enjoy the event. Our team has gathered the best practices from dozens of successful weddings to help you plan the perfect experience.',
-      date: '2024-01-15',
-      author: 'Sarah',
-      image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 2,
-      title: 'Creating a Child-Friendly Wedding Reception',
-      excerpt: 'Learn how to design your reception space and schedule to make it comfortable and enjoyable for children. A child-friendly reception starts with thoughtful planning and attention to detail. Consider creating dedicated play areas, organizing interactive activities, and planning a menu that caters to younger guests. Lighting, noise levels, and rest areas are all important factors in creating a comfortable environment. Our experts share proven strategies for transforming your reception into a family-friendly celebration. Discover how small touches can make a big difference in the overall guest experience.',
-      date: '2024-01-10',
-      author: 'Maria',
-      image: 'https://images.unsplash.com/photo-1765947383480-8c4e1e361679?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODY5NjV8MHwxfHNlYXJjaHwzfHxjaGlsZCUyMGZyaWVuZGx5JTIwd2VkZGluZyUyMHJlY2VwdGlvbnxlbnwwfDB8fHwxNzgyODUzODc2fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    },
-    {
-      id: 3,
-      title: 'Safety First: Childcare Best Practices at Events',
-      excerpt: 'Essential safety tips and best practices for ensuring children are protected and cared for during your wedding. Safety should always be the top priority when planning an event with children. From supervision strategies to emergency protocols, we cover everything you need to know. Learn about proper staff-to-child ratios, safety checks for play areas, and how to communicate emergency procedures with all caregivers. Our guide includes checklists you can use to ensure nothing is overlooked. Professional childcare providers follow strict safety standards, and we share those best practices with you.',
-      date: '2024-01-05',
-      author: 'Elena',
-      image: 'https://images.unsplash.com/photo-1614113036347-9f60df80730a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODY5NjV8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMGhhdmluZyUyMGZ1bnxlbnwwfDB8fHwxNzgyODU0MDAxfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    },
-    {
-      id: 4,
-      title: 'How Professional Childcare Enhances Your Wedding Day',
-      excerpt: 'Explore the benefits of hiring professional childcare services and how it allows parents to fully enjoy their celebration. Professional childcare is more than just supervision—it\'s about creating an enriching experience for children while giving parents peace of mind. When you have trained professionals caring for the children, you can focus on the moments that matter. Learn about the specific benefits of professional services, from structured activities to expert supervision. Many couples report that having professional childcare was one of the best decisions they made for their wedding day.',
-      date: '2023-12-28',
-      author: 'Ana',
-      image: 'https://api.sitejourney.ai/storage/v1/object/public/site-assets/8f54d34b-e905-4c6e-8280-10f06155cd4e/73449c5a-5d3e-470a-b419-4ba15e2b3d25/photo-1782854185709-jjo5.png',
-    },
-    {
-      id: 5,
-      title: 'Managing Different Age Groups: A Complete Guide',
-      excerpt: 'Strategies for engaging and caring for children across various age groups at your wedding event. Different ages require different approaches to entertainment and care. Toddlers need different supervision than school-age children, who have different interests than teenagers. Our comprehensive guide breaks down effective strategies for each age group. Learn how to mix age groups appropriately, create activities that appeal to multiple ages, and set up areas that work for everyone. Understanding developmental stages helps you plan activities that will be genuinely engaging.',
-      date: '2023-12-20',
-      author: 'Sofia',
-      image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 6,
-      title: 'Parent Testimonials: Real Stories from Happy Couples',
-      excerpt: 'Read heartwarming stories from couples who used our childcare services and how it transformed their weddings. Hearing from real couples who have experienced our services provides valuable insight. From small intimate weddings to large celebrations, our clients share how professional childcare made their day special. These testimonials highlight the peace of mind that comes with professional supervision and the joy of watching children have fun at the reception. Many couples return to share photos and stories months after their wedding, showing the lasting impact of well-planned childcare.',
-      date: '2023-12-15',
-      author: 'Laura',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-  ];
+  const translatedPosts = (i18n.getResourceBundle(i18n.language, 'blogPosts') ?? {}) as Record<string, BlogPostText>;
+  const blogPosts = blogPostsMeta.map((meta) => ({
+    ...meta,
+    title: translatedPosts[meta.id].title,
+    body: translatedPosts[meta.id].body,
+  }));
 
   const articleId = id ? parseInt(id, 10) : null;
   const article = articleId ? blogPosts.find((post) => post.id === articleId) : null;
@@ -74,7 +30,7 @@ const BlogArticlePage: React.FC = () => {
     if (article) {
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute('content', `${article.title}. ${article.excerpt.substring(0, 100)}...`);
+        metaDesc.setAttribute('content', `${article.title}. ${article.body.substring(0, 100)}...`);
       }
     }
   }, [article]);
@@ -85,7 +41,8 @@ const BlogArticlePage: React.FC = () => {
       month: 'long',
       day: 'numeric',
     };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    const locale = i18n.language === 'es' ? 'es-ES' : 'en-US';
+    return new Date(dateString).toLocaleDateString(locale, options);
   };
 
   const containerVariants = {
@@ -123,10 +80,10 @@ const BlogArticlePage: React.FC = () => {
         >
           <h1 className="text-6xl font-bold text-stone-900 mb-4">404</h1>
           <p className="text-2xl font-semibold text-stone-700 mb-4">
-            Article Not Found
+            {t('blogArticle:notFoundTitle')}
           </p>
           <p className="text-stone-600 mb-8">
-            Sorry, we couldn't find the blog article you're looking for. It may have been moved or deleted.
+            {t('blogArticle:notFoundText')}
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -134,7 +91,7 @@ const BlogArticlePage: React.FC = () => {
             onClick={() => navigate('/blog')}
             className="px-8 py-3 bg-rose-500 text-white font-semibold rounded-lg hover:bg-rose-600 transition-colors"
           >
-            Back to Blog
+            {t('blogArticle:backToBlog')}
           </motion.button>
         </motion.div>
       </div>
@@ -170,7 +127,7 @@ const BlogArticlePage: React.FC = () => {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            Back to Blog
+            {t('blogArticle:backToBlog')}
           </motion.button>
         </div>
       </motion.div>
@@ -216,7 +173,7 @@ const BlogArticlePage: React.FC = () => {
                 {formatDate(article.date)}
               </span>
               <span className="text-sm text-stone-600">
-                by {article.author}
+                {t('common:byAuthor', { author: article.author })}
               </span>
             </div>
           </motion.div>
@@ -226,7 +183,7 @@ const BlogArticlePage: React.FC = () => {
             variants={itemVariants}
             className="prose prose-lg max-w-none text-stone-700 space-y-6"
           >
-            {article.excerpt.split('\n\n').map((paragraph, index) => (
+            {article.body.split('\n\n').map((paragraph, index) => (
               <p key={index} className="leading-relaxed">
                 {paragraph}
               </p>
@@ -240,10 +197,10 @@ const BlogArticlePage: React.FC = () => {
           >
             <div className="bg-stone-50 rounded-lg p-6">
               <h2 className="text-lg font-bold text-stone-900 mb-2">
-                About the Author
+                {t('blogArticle:aboutAuthor')}
               </h2>
               <p className="text-stone-600">
-                {article.author} is a wedding care expert with years of experience in childcare services and family event planning. Their insights help couples create memorable celebrations that work for everyone.
+                {t('blogArticle:authorBioTemplate', { author: article.author })}
               </p>
             </div>
           </motion.div>
@@ -260,10 +217,10 @@ const BlogArticlePage: React.FC = () => {
       >
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mb-6">
-            Ready to Learn More?
+            {t('blogArticle:ctaHeading')}
           </h2>
           <p className="text-lg text-stone-600 mb-8">
-            Explore more articles and insights on our blog.
+            {t('blogArticle:ctaParagraph')}
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -271,7 +228,7 @@ const BlogArticlePage: React.FC = () => {
             onClick={() => navigate('/blog')}
             className="px-8 py-3 bg-rose-500 text-white font-semibold rounded-lg hover:bg-rose-600 transition-colors shadow-md"
           >
-            View All Articles
+            {t('blogArticle:ctaButton')}
           </motion.button>
         </div>
       </motion.section>

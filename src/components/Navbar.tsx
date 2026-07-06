@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Heart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar() {
+  const { t } = useTranslation('common');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -65,28 +68,29 @@ export default function Navbar() {
             onClick={() => handleNavigation('services-section-f5w8n3r6')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
-            SERVICES
+            {t('nav.services')}
           </button>
-          <button 
-            id="nav-link-about-k7j2l4p9" 
+          <button
+            id="nav-link-about-k7j2l4p9"
             onClick={() => handleNavigation('about-section-m2k4n6p8')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
-            OUR STORY
+            {t('nav.ourStory')}
           </button>
-          <button 
+          <button
             id="nav-link-blog-x3n8p1m3"
             onClick={handleBlogNavigate}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
-            BLOG
+            {t('nav.blog')}
           </button>
-          <button 
+          <LanguageToggle scrolled={scrolled} />
+          <button
             id="nav-cta-btn-q1w2e3r4"
             onClick={() => handleNavigation('contact-section-h1j2k3l4')}
             className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest transition-all ${ scrolled ? 'bg-stone-900 text-white hover:bg-rose-600' : 'bg-white text-stone-900 hover:bg-rose-100' }`}
           >
-            GET QUOTE
+            {t('nav.getQuote')}
           </button>
         </div>
 
@@ -112,29 +116,30 @@ export default function Navbar() {
         style={{ zIndex: 40 }}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          <button 
+          <button
             className="text-2xl font-light hover: text-white"
             onClick={() => handleNavigation('services-section-f5w8n3r6')}
           >
-            Services
+            {t('nav.servicesMobile')}
           </button>
-          <button 
+          <button
             className="text-2xl font-light hover: text-white"
             onClick={() => handleNavigation('about-section-m2k4n6p8')}
           >
-            Our Story
+            {t('nav.ourStoryMobile')}
           </button>
-          <button 
+          <button
             className="text-2xl font-light hover: text-white"
             onClick={handleBlogNavigate}
           >
-            Blog
+            {t('nav.blogMobile')}
           </button>
-          <button 
+          <LanguageToggle dark />
+          <button
             className="mt-4 px-10 py-4 bg-rose-500 rounded-full text-lg font-medium text-white"
             onClick={() => handleNavigation('contact-section-h1j2k3l4')}
           >
-            Request Pricing
+            {t('nav.requestPricing')}
           </button>
         </div>
       </div>

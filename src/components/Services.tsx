@@ -1,58 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Clock, Users, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { packagesMeta } from '../data/packages';
 
-const packages = [
-  {
-    id: "package-essencial-k2m4n6p8",
-    name: "Essential",
-    price: "From 350€",
-    duration: "Up to 5 hours",
-    capacity: "1-8 children",
-    features: [
-      "1-2 Certified caregivers",
-      "Basic play zone setup",
-      "Creative materials kit",
-      "Safe toy selection",
-      "Setup & dismantling"
-    ],
-    highlight: false
-  },
-  {
-    id: "package-full-v7n2m9x1",
-    name: "Full Wedding",
-    price: "From 600€",
-    duration: "Up to 9 hours",
-    capacity: "9-16 children",
-    features: [
-      "2-3 Certified caregivers",
-      "Themed decorated space",
-      "Professional entertainer",
-      "Age-graded activity kits",
-      "Children's snack supervision",
-      "Ceremony to early party coverage"
-    ],
-    highlight: true
-  },
-  {
-    id: "package-premium-x2n8p1m3",
-    name: "Premium",
-    price: "From 800€",
-    duration: "Up to 12 hours",
-    capacity: "16+ children",
-    features: [
-      "3+ Bilingual caregivers",
-      "Dedicated event coordinator",
-      "Baby nap zone provision",
-      "Children's photo booth",
-      "Catering liaison for kids' menu",
-      "Full day & overnight options"
-    ],
-    highlight: false
-  }
-];
+interface PackageText {
+  name: string;
+  price: string;
+  duration: string;
+  capacity: string;
+  features: string[];
+}
 
 export default function Services() {
+  const { t } = useTranslation('services');
+  const translatedPackages = t('packages', { returnObjects: true }) as Record<string, PackageText>;
+  const packages = packagesMeta.map((meta) => ({ ...meta, ...translatedPackages[meta.id] }));
+
   return (
     <section 
       id="services-section-f5w8n3r6" 
@@ -66,11 +30,11 @@ export default function Services() {
             viewport={{ once: true }}
           >
             <h2 className="font-sans font-extralight text-4xl md:text-6xl mb-6 text-white">
-              Our Care
-              <span className="font-display italic text-rose-300 ml-3">Packages</span>
+              {t('heading1')}
+              <span className="font-display italic text-rose-300 ml-3">{t('heading2')}</span>
             </h2>
             <p className="text-stone-400 text-lg max-w-2xl mx-auto">
-              Select the perfect level of care for your celebration. Each package is fully customizable to match your venue and style.
+              {t('subtext')}
             </p>
           </motion.div>
         </div>
@@ -91,7 +55,7 @@ export default function Services() {
             >
               {pkg.highlight && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-rose-600 px-4 py-1 rounded-full text-xs font-bold tracking-widest">
-                  MOST POPULAR
+                  {t('mostPopular')}
                 </div>
               )}
 
@@ -130,7 +94,7 @@ export default function Services() {
                     : 'bg-stone-700 text-white hover:bg-stone-600'
                 }`}
               >
-                SELECT PACKAGE
+                {t('selectPackage')}
               </button>
             </motion.div>
           ))}
@@ -138,7 +102,7 @@ export default function Services() {
 
         <div className="mt-16 text-center">
           <p className="text-stone-500 text-sm">
-            * Need a specific timeframe? Extra hours available at <span className="text-rose-400">25-30€/h per caregiver</span>.
+            {t('footnotePrefix')} <span className="text-rose-400">{t('footnoteHighlight')}</span>.
           </p>
         </div>
       </div>

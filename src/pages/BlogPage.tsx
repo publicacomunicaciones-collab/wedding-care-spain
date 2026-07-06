@@ -1,77 +1,33 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { blogPostsMeta } from '../data/blogPosts';
 
-interface BlogPost {
-  id: number;
+interface BlogPostText {
   title: string;
   excerpt: string;
-  date: string;
-  author: string;
-  image: string;
+  body: string;
 }
 
 const BlogPage: React.FC = () => {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation(['blog', 'blogPosts', 'common']);
 
-  const blogPosts: BlogPost[] = [
-    {
-      id: 1,
-      title: 'Tips for Keeping Children Entertained During Weddings',
-      excerpt: 'Discover creative and fun activities to keep children engaged throughout the wedding ceremony and reception.',
-      date: '2024-01-15',
-      author: 'Sarah',
-      image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 2,
-      title: 'Creating a Child-Friendly Wedding Reception',
-      excerpt: 'Learn how to design your reception space and schedule to make it comfortable and enjoyable for children.',
-      date: '2024-01-10',
-      author: 'Maria',
-      image: 'https://images.unsplash.com/photo-1765947383480-8c4e1e361679?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODY5NjV8MHwxfHNlYXJjaHwzfHxjaGlsZCUyMGZyaWVuZGx5JTIwd2VkZGluZyUyMHJlY2VwdGlvbnxlbnwwfDB8fHwxNzgyODUzODc2fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    },
-    {
-      id: 3,
-      title: 'Safety First: Childcare Best Practices at Events',
-      excerpt: 'Essential safety tips and best practices for ensuring children are protected and cared for during your wedding.',
-      date: '2024-01-05',
-      author: 'Elena',
-      image: 'https://images.unsplash.com/photo-1614113036347-9f60df80730a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODY5NjV8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMGhhdmluZyUyMGZ1bnxlbnwwfDB8fHwxNzgyODU0MDAxfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    },
-    {
-      id: 4,
-      title: 'How Professional Childcare Enhances Your Wedding Day',
-      excerpt: 'Explore the benefits of hiring professional childcare services and how it allows parents to fully enjoy their celebration.',
-      date: '2023-12-28',
-      author: 'Ana',
-      image: 'https://api.sitejourney.ai/storage/v1/object/public/site-assets/8f54d34b-e905-4c6e-8280-10f06155cd4e/73449c5a-5d3e-470a-b419-4ba15e2b3d25/photo-1782854185709-jjo5.png',
-    },
-    {
-      id: 5,
-      title: 'Managing Different Age Groups: A Complete Guide',
-      excerpt: 'Strategies for engaging and caring for children across various age groups at your wedding event.',
-      date: '2023-12-20',
-      author: 'Sofia',
-      image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 6,
-      title: 'Parent Testimonials: Real Stories from Happy Couples',
-      excerpt: 'Read heartwarming stories from couples who used our childcare services and how it transformed their weddings.',
-      date: '2023-12-15',
-      author: 'Laura',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-  ];
+  const translatedPosts = (i18n.getResourceBundle(i18n.language, 'blogPosts') ?? {}) as Record<string, BlogPostText>;
+  const blogPosts = blogPostsMeta.map((meta) => ({
+    ...meta,
+    title: translatedPosts[meta.id].title,
+    excerpt: translatedPosts[meta.id].excerpt,
+  }));
 
   useEffect(() => {
     // Set meta description dynamically for blog page
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Wedding childcare tips, safety practices, and parent testimonials. Expert advice on creating child-friendly celebrations in Barcelona.');
+      metaDesc.setAttribute('content', t('blog:metaDescription'));
     }
-  }, []);
+  }, [t]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -108,7 +64,8 @@ const BlogPage: React.FC = () => {
       month: 'long',
       day: 'numeric',
     };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    const locale = i18n.language === 'es' ? 'es-ES' : 'en-US';
+    return new Date(dateString).toLocaleDateString(locale, options);
   };
 
   const handleGetQuoteClick = () => {
@@ -132,10 +89,10 @@ const BlogPage: React.FC = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <h1 className="text-5xl sm:text-6xl font-bold text-stone-900 mb-6">
-            <span className="text-rose-500">Wedding</span> Care Blog
+            <span className="text-rose-500">{t('blog:heroHeadingAccent')}</span> {t('blog:heroHeadingSuffix')}
           </h1>
           <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-            Expert advice and insights on childcare services, wedding planning, and creating memorable celebrations for families.
+            {t('blog:heroSubtitle')}
           </p>
         </motion.div>
 
@@ -189,7 +146,7 @@ const BlogPage: React.FC = () => {
                         {formatDate(post.date)}
                       </span>
                       <span className="text-xs text-stone-500">
-                        by {post.author}
+                        {t('common:byAuthor', { author: post.author })}
                       </span>
                     </div>
                   </div>
@@ -203,7 +160,7 @@ const BlogPage: React.FC = () => {
                       to={`/blog/${post.id}`}
                       className="inline-flex items-center text-rose-500 font-semibold hover:text-rose-600 transition-colors"
                     >
-                      Read More
+                      {t('common:readMore')}
                       <svg
                         className="w-4 h-4 ml-2"
                         fill="none"
@@ -236,10 +193,10 @@ const BlogPage: React.FC = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Ready to Plan Your Wedding?
+            {t('blog:ctaHeading')}
           </h2>
           <p className="text-xl text-rose-100 mb-8">
-            Let us handle the childcare so you can focus on celebrating with your loved ones.
+            {t('blog:ctaParagraph')}
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -247,7 +204,7 @@ const BlogPage: React.FC = () => {
             onClick={handleGetQuoteClick}
             className="px-8 py-4 bg-white text-rose-500 font-bold rounded-lg hover:bg-stone-100 transition-colors shadow-lg"
           >
-            Get a Quote
+            {t('blog:ctaButton')}
           </motion.button>
         </motion.div>
       </section>

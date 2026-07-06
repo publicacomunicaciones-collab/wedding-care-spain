@@ -1,8 +1,10 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation('footer');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -43,32 +45,32 @@ export default function Footer() {
               </span>
             </div>
             <p className="max-w-sm text-stone-500 leading-relaxed">
-              Specialized childcare services for weddings and large events. Creating safe, fun, and elegant spaces for children so parents can enjoy every moment.
+              {t('tagline')}
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-medium mb-6 uppercase text-xs tracking-widest">Quick Links</h4>
+            <h4 className="text-white font-medium mb-6 uppercase text-xs tracking-widest">{t('quickLinks')}</h4>
             <ul className="space-y-4 text-sm">
-              <li><button onClick={() => handleNavigation(null)} className="hover:text-rose-400 transition-colors">Home</button></li>
-              <li><button onClick={() => handleNavigation('services-section-f5w8n3r6')} className="hover:text-rose-400 transition-colors">Services</button></li>
-              <li><button onClick={() => handleNavigation('about-section-m2k4n6p8')} className="hover:text-rose-400 transition-colors">Our Story</button></li>
-              <li><button onClick={() => handleNavigation(null, '/blog')} className="hover:text-rose-400 transition-colors">Blog</button></li>
-              <li><button onClick={() => handleNavigation('contact-section-h1j2k3l4')} className="hover:text-rose-400 transition-colors">Contact</button></li>
+              <li><button onClick={() => handleNavigation(null)} className="hover:text-rose-400 transition-colors">{t('home')}</button></li>
+              <li><button onClick={() => handleNavigation('services-section-f5w8n3r6')} className="hover:text-rose-400 transition-colors">{t('services')}</button></li>
+              <li><button onClick={() => handleNavigation('about-section-m2k4n6p8')} className="hover:text-rose-400 transition-colors">{t('ourStory')}</button></li>
+              <li><button onClick={() => handleNavigation(null, '/blog')} className="hover:text-rose-400 transition-colors">{t('blog')}</button></li>
+              <li><button onClick={() => handleNavigation('contact-section-h1j2k3l4')} className="hover:text-rose-400 transition-colors">{t('contact')}</button></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-medium mb-6 uppercase text-xs tracking-widest">Location</h4>
-            <p className="text-sm mb-2 text-white">Sants, Barcelona</p>
-            <p className="text-sm mb-4 text-white">Catalonia, Spain</p>
+            <h4 className="text-white font-medium mb-6 uppercase text-xs tracking-widest">{t('location')}</h4>
+            <p className="text-sm mb-2 text-white">{t('locationLine1')}</p>
+            <p className="text-sm mb-4 text-white">{t('locationLine2')}</p>
             <p className="text-sm text-rose-400">+34 632 47 65 57</p>
           </div>
         </div>
 
         <div className="pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-white">
-            © {new Date().getFullYear()} WeddingCare Barcelona. All rights reserved.
+            {t('copyright', { year: new Date().getFullYear() })}
           </p>
           
           <a 

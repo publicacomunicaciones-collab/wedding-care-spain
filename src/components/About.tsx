@@ -1,27 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Baby, Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import aboutMedia from '../assets/about-media.png';
 
-const features = [
-  {
-    icon: ShieldCheck,
-    title: "Certified Caregivers",
-    desc: "Our team consists of qualified educators and caregivers with specialized training in pediatric first aid and event safety.",
-  },
-  {
-    icon: Baby,
-    title: "Curated Play Spaces",
-    desc: "We design aesthetic 'children's corners' that blend seamlessly with your wedding décor while offering age-appropriate fun.",
-  },
-  {
-    icon: Star,
-    title: "Structured Activities",
-    desc: "From creative workshops to themed games, we ensure children of all ages are engaged while you enjoy your celebration.",
-  }
-];
+const featureIcons = [ShieldCheck, Baby, Star];
+
+interface AboutFeature {
+  title: string;
+  desc: string;
+}
 
 export default function About() {
+  const { t } = useTranslation('about');
+  const features = t('features', { returnObjects: true }) as AboutFeature[];
+
   return (
     <section 
       id="about-section-m2k4n6p8" 
@@ -36,28 +29,31 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-sans font-light text-stone-900 text-4xl md:text-5xl mb-8">
-              Elevating the
-              <span id="about-accent-v7n2m9x1" className="font-display italic text-rose-500 block">Guest Experience</span>
+              {t('heading1')}
+              <span id="about-accent-v7n2m9x1" className="font-display italic text-rose-500 block">{t('heading2')}</span>
             </h2>
             <p className="text-stone-600 text-lg leading-relaxed mb-6">
-              WeddingCare Barcelona was born from a simple observation: children are the heart of family celebrations, but weddings are designed for adults. 
+              {t('paragraph1')}
             </p>
             <p className="text-stone-600 text-lg leading-relaxed mb-10">
-              We bridge that gap by creating immersive, beautiful, and safe environments where little ones can celebrate in their own way. From Sants to the wider Catalonia region, we handle everything—from setup to supervised activities—so you and your guests can celebrate with peace of mind.
+              {t('paragraph2')}
             </p>
-            
+
             <div className="grid grid-cols-1 gap-6">
-              {features.map((item, idx) => (
-                <div key={idx} className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <item.icon className="text-rose-500" size={28} />
+              {features.map((item, idx) => {
+                const Icon = featureIcons[idx];
+                return (
+                  <div key={idx} className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <Icon className="text-rose-500" size={28} />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-stone-900">{item.title}</h3>
+                      <p className="text-stone-500 text-sm">{item.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-stone-900">{item.title}</h3>
-                    <p className="text-stone-500 text-sm">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
 
@@ -69,15 +65,15 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              <img 
+              <img
                 src={aboutMedia}
-                alt="Certified caregivers supervising children in a beautifully decorated wedding play area"
+                alt={t('imageAlt')}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-2xl shadow-xl hidden md:block max-w-xs">
-              <p className="text-rose-500 font-display italic text-2xl mb-2">"A game-changer for our wedding"</p>
-              <p className="text-stone-500 text-sm">- Marta & Joan, Barcelona</p>
+              <p className="text-rose-500 font-display italic text-2xl mb-2">"{t('testimonialQuote')}"</p>
+              <p className="text-stone-500 text-sm">{t('testimonialAuthor')}</p>
             </div>
           </motion.div>
         </div>

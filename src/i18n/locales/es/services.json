@@ -1,0 +1,52 @@
+{
+  "heading1": "Nuestros Paquetes",
+  "heading2": "de Cuidado",
+  "subtext": "Elige el nivel de cuidado perfecto para tu celebración. Cada paquete es totalmente personalizable según tu espacio y estilo.",
+  "mostPopular": "MÁS POPULAR",
+  "selectPackage": "ELEGIR PAQUETE",
+  "footnotePrefix": "* ¿Necesitas un horario específico? Horas extra disponibles a",
+  "footnoteHighlight": "25-30€/h por cuidadora",
+  "packages": {
+    "essential": {
+      "name": "Esencial",
+      "price": "Desde 350€",
+      "duration": "Hasta 5 horas",
+      "capacity": "1-8 niños",
+      "features": [
+        "1-2 cuidadoras certificadas",
+        "Zona de juegos básica",
+        "Kit de materiales creativos",
+        "Selección de juguetes seguros",
+        "Montaje y desmontaje"
+      ]
+    },
+    "full": {
+      "name": "Boda Completa",
+      "price": "Desde 600€",
+      "duration": "Hasta 9 horas",
+      "capacity": "9-16 niños",
+      "features": [
+        "2-3 cuidadoras certificadas",
+        "Espacio decorado a tema",
+        "Animador profesional",
+        "Kits de actividades por edad",
+        "Supervisión de la merienda infantil",
+        "Cobertura desde la ceremonia hasta el inicio del banquete"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "Desde 800€",
+      "duration": "Hasta 12 horas",
+      "capacity": "Más de 16 niños",
+      "features": [
+        "3 o más cuidadoras bilingües",
+        "Coordinadora de evento dedicada",
+        "Zona de siesta para bebés",
+        "Photocall infantil",
+        "Coordinación con catering para menú infantil",
+        "Opciones de día completo y pernocta"
+      ]
+    }
+  }
+}

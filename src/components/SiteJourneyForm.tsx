@@ -1,4 +1,5 @@
 import React, { useState, FormEvent, ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface SiteJourneyFormProps {
   className?: string;
@@ -18,12 +19,14 @@ declare global {
 export default function SiteJourneyForm({
   className,
   formType,
-  successMessage = 'Thank you! Your submission has been received.',
+  successMessage,
   children,
   onSuccess,
 }: SiteJourneyFormProps) {
+  const { t } = useTranslation('form');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const resolvedSuccessMessage = successMessage ?? t('defaultSuccessMessage');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,7 +66,7 @@ export default function SiteJourneyForm({
       onSuccess?.();
     } catch (err) {
       setStatus('error');
-      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong');
+      setErrorMsg(err instanceof Error ? err.message : t('genericError'));
     }
   };
 
@@ -71,13 +74,13 @@ export default function SiteJourneyForm({
     return (
       <div className={className}>
         <div className="rounded-lg bg-green-50 border border-green-200 p-6 text-center">
-          <p className="text-green-800 font-medium">{successMessage}</p>
+          <p className="text-green-800 font-medium">{resolvedSuccessMessage}</p>
           <button
             type="button"
             className="mt-3 text-sm text-green-600 underline hover:text-green-800"
             onClick={() => setStatus('idle')}
           >
-            Submit another response
+            {t('submitAnother')}
           </button>
         </div>
       </div>
@@ -93,7 +96,7 @@ export default function SiteJourneyForm({
       {status === 'submitting' && (
         <div className="flex items-center gap-2 mt-2 text-sm text-gray-500">
           <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
-          Submitting...
+          {t('submitting')}
         </div>
       )}
     </form>

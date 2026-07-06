@@ -1,0 +1,10 @@
+{
+  "notFoundTitle": "Article Not Found",
+  "notFoundText": "Sorry, we couldn't find the blog article you're looking for. It may have been moved or deleted.",
+  "backToBlog": "Back to Blog",
+  "aboutAuthor": "About the Author",
+  "authorBioTemplate": "{{author}} is a wedding care expert with years of experience in childcare services and family event planning. Their insights help couples create memorable celebrations that work for everyone.",
+  "ctaHeading": "Ready to Learn More?",
+  "ctaParagraph": "Explore more articles and insights on our blog.",
+  "ctaButton": "View All Articles"
+}

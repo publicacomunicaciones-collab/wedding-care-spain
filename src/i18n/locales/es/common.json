@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "services": "SERVICIOS",
+    "ourStory": "NUESTRA HISTORIA",
+    "blog": "BLOG",
+    "getQuote": "PEDIR PRESUPUESTO",
+    "servicesMobile": "Servicios",
+    "ourStoryMobile": "Nuestra Historia",
+    "blogMobile": "Blog",
+    "requestPricing": "Solicitar Precios"
+  },
+  "langToggle": {
+    "switchToEs": "Cambiar a español",
+    "switchToEn": "Switch to English"
+  },
+  "readMore": "Leer Más",
+  "byAuthor": "por {{author}}"
+}

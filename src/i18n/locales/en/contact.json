@@ -1,0 +1,22 @@
+{
+  "heading1": "Request a",
+  "heading2": "personalized quote",
+  "intro": "We would love to hear about your special day. Fill out the form and our coordinator will reach out within 24 hours to discuss your needs.",
+  "callUs": "Call us",
+  "emailUs": "Email us",
+  "office": "Office",
+  "officeAddress": "Sants, Barcelona, ES",
+  "fullName": "Full Name",
+  "emailAddress": "Email Address",
+  "weddingDate": "Wedding Date",
+  "package": "Package",
+  "message": "Tell us more (approx. number of children, venue, etc.)",
+  "options": {
+    "essential": "Essential",
+    "fullWedding": "Full Wedding",
+    "premium": "Premium",
+    "custom": "Custom Request"
+  },
+  "submit": "REQUEST AVAILABILITY",
+  "successMessage": "Thank you! We will contact you shortly with your custom quote."
+}

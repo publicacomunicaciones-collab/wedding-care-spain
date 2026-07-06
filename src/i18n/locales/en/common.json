@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "services": "SERVICES",
+    "ourStory": "OUR STORY",
+    "blog": "BLOG",
+    "getQuote": "GET QUOTE",
+    "servicesMobile": "Services",
+    "ourStoryMobile": "Our Story",
+    "blogMobile": "Blog",
+    "requestPricing": "Request Pricing"
+  },
+  "langToggle": {
+    "switchToEs": "Switch to Spanish",
+    "switchToEn": "Switch to English"
+  },
+  "readMore": "Read More",
+  "byAuthor": "by {{author}}"
+}

@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SiteJourneyForm from './SiteJourneyForm';
 
 export default function Contact() {
+  const { t } = useTranslation('contact');
   return (
     <section 
       id="contact-section-h1j2k3l4" 
@@ -17,11 +19,11 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <h2 className="font-sans font-light text-stone-900 text-4xl md:text-5xl mb-8">
-              Request a
-              <span className="font-display italic text-rose-500 block">personalized quote</span>
+              {t('heading1')}
+              <span className="font-display italic text-rose-500 block">{t('heading2')}</span>
             </h2>
             <p className="text-stone-600 text-lg mb-12">
-              We would love to hear about your special day. Fill out the form and our coordinator will reach out within 24 hours to discuss your needs.
+              {t('intro')}
             </p>
 
             <div className="space-y-8">
@@ -30,7 +32,7 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">Call us</p>
+                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">{t('callUs')}</p>
                   <a href="tel:+34632476557" className="text-stone-900 font-medium hover:text-rose-600 transition-colors">+34 632 47 65 57</a>
                 </div>
               </div>
@@ -40,7 +42,7 @@ export default function Contact() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">Email us</p>
+                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">{t('emailUs')}</p>
                   <a href="mailto:info@weddingcarebarcelona.com" className="text-stone-900 font-medium hover:text-rose-600 transition-colors">info@weddingcarebarcelona.com</a>
                 </div>
               </div>
@@ -50,8 +52,8 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">Office</p>
-                  <p className="text-stone-900 font-medium">Sants, Barcelona, ES</p>
+                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">{t('office')}</p>
+                  <p className="text-stone-900 font-medium">{t('officeAddress')}</p>
                 </div>
               </div>
             </div>
@@ -63,23 +65,23 @@ export default function Contact() {
             viewport={{ once: true }}
             className="bg-stone-50 p-8 md:p-12 rounded-3xl shadow-sm border border-stone-100"
           >
-            <SiteJourneyForm formType="quote" successMessage="Thank you! We will contact you shortly with your custom quote.">
+            <SiteJourneyForm formType="quote" successMessage={t('successMessage')}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Full Name</label>
-                  <input 
-                    name="name" 
-                    type="text" 
-                    required 
+                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('fullName')}</label>
+                  <input
+                    name="name"
+                    type="text"
+                    required
                     className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Email Address</label>
-                  <input 
-                    name="email" 
-                    type="email" 
-                    required 
+                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('emailAddress')}</label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
                     className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"
                   />
                 </div>
@@ -87,41 +89,41 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Wedding Date</label>
-                  <input 
-                    name="date" 
-                    type="date" 
+                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('weddingDate')}</label>
+                  <input
+                    name="date"
+                    type="date"
                     className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Package</label>
-                  <select 
-                    name="package" 
+                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('package')}</label>
+                  <select
+                    name="package"
                     className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"
                   >
-                    <option>Essential</option>
-                    <option>Full Wedding</option>
-                    <option>Premium</option>
-                    <option>Custom Request</option>
+                    <option>{t('options.essential')}</option>
+                    <option>{t('options.fullWedding')}</option>
+                    <option>{t('options.premium')}</option>
+                    <option>{t('options.custom')}</option>
                   </select>
                 </div>
               </div>
 
               <div className="mb-8">
-                <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Tell us more (approx. number of children, venue, etc.)</label>
-                <textarea 
-                  name="message" 
-                  rows={4} 
+                <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('message')}</label>
+                <textarea
+                  name="message"
+                  rows={4}
                   className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"
                 ></textarea>
               </div>
 
-              <button 
+              <button
                 type="submit"
                 className="w-full py-4 bg-stone-900 text-white rounded-xl text-sm font-semibold tracking-widest hover:bg-rose-600 transition-all shadow-lg"
               >
-                REQUEST AVAILABILITY
+                {t('submit')}
               </button>
             </SiteJourneyForm>
           </motion.div>

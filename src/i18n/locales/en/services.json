@@ -1,0 +1,52 @@
+{
+  "heading1": "Our Care",
+  "heading2": "Packages",
+  "subtext": "Select the perfect level of care for your celebration. Each package is fully customizable to match your venue and style.",
+  "mostPopular": "MOST POPULAR",
+  "selectPackage": "SELECT PACKAGE",
+  "footnotePrefix": "* Need a specific timeframe? Extra hours available at",
+  "footnoteHighlight": "25-30€/h per caregiver",
+  "packages": {
+    "essential": {
+      "name": "Essential",
+      "price": "From 350€",
+      "duration": "Up to 5 hours",
+      "capacity": "1-8 children",
+      "features": [
+        "1-2 Certified caregivers",
+        "Basic play zone setup",
+        "Creative materials kit",
+        "Safe toy selection",
+        "Setup & dismantling"
+      ]
+    },
+    "full": {
+      "name": "Full Wedding",
+      "price": "From 600€",
+      "duration": "Up to 9 hours",
+      "capacity": "9-16 children",
+      "features": [
+        "2-3 Certified caregivers",
+        "Themed decorated space",
+        "Professional entertainer",
+        "Age-graded activity kits",
+        "Children's snack supervision",
+        "Ceremony to early party coverage"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "From 800€",
+      "duration": "Up to 12 hours",
+      "capacity": "16+ children",
+      "features": [
+        "3+ Bilingual caregivers",
+        "Dedicated event coordinator",
+        "Baby nap zone provision",
+        "Children's photo booth",
+        "Catering liaison for kids' menu",
+        "Full day & overnight options"
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "notFoundTitle": "Artículo No Encontrado",
+  "notFoundText": "Lo sentimos, no hemos podido encontrar el artículo del blog que buscas. Puede que se haya movido o eliminado.",
+  "backToBlog": "Volver al Blog",
+  "aboutAuthor": "Sobre la Autora",
+  "authorBioTemplate": "{{author}} es una experta en cuidado infantil para bodas con años de experiencia en servicios de cuidado infantil y organización de eventos familiares. Sus consejos ayudan a las parejas a crear celebraciones inolvidables para todos.",
+  "ctaHeading": "¿Quieres Saber Más?",
+  "ctaParagraph": "Descubre más artículos y consejos en nuestro blog.",
+  "ctaButton": "Ver Todos los Artículos"
+}
