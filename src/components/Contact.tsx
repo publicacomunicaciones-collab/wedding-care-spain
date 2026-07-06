@@ -43,7 +43,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">{t('emailUs')}</p>
-                  <a href="mailto:info@weddingcarebarcelona.com" className="text-stone-900 font-medium hover:text-rose-600 transition-colors">info@weddingcarebarcelona.com</a>
+                  <a href="mailto:hola@wedding-care.com" className="text-stone-900 font-medium hover:text-rose-600 transition-colors">hola@wedding-care.com</a>
                 </div>
               </div>
 
