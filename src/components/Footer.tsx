@@ -44,9 +44,16 @@ export default function Footer() {
                 Wedding<span className="font-display italic ml-0.5">Care</span>
               </span>
             </div>
-            <p className="max-w-sm text-stone-500 leading-relaxed">
+            <p className="max-w-sm text-stone-500 leading-relaxed mb-6">
               {t('tagline')}
             </p>
+            <a rel="nofollow" href="https://www.bodas.net" title="Bodas.net" target="_blank">
+              <img
+                alt="Bodas.net"
+                src="https://www.bodas.net/images/sellos/Sello-bodas--gg300481.png"
+                style={{ borderWidth: '0px' }}
+              />
+            </a>
           </div>
 
           <div>
@@ -73,24 +80,6 @@ export default function Footer() {
             {t('copyright', { year: new Date().getFullYear() })}
           </p>
           
-          <div className="flex items-center gap-4">
-            <a rel="nofollow" href="https://www.bodas.net" title="Bodas.net" target="_blank">
-              <img
-                alt="Bodas.net"
-                src="https://www.bodas.net/images/sellos/Sello-bodas--gg300481.png"
-                style={{ borderWidth: '0px' }}
-              />
-            </a>
-
-            <a
-              href="https://sitejourney.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-1 bg-stone-900 border border-stone-800 rounded-full text-[10px] text-stone-500 hover:text-white hover:border-blue-800 transition-all"
-            >
-              Made with <span className="text-blue-500 font-bold">SiteJourney.ai</span>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
