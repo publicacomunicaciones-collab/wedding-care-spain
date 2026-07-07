@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import BlogPage from './pages/BlogPage';
 import BlogArticlePage from './pages/BlogArticlePage';
@@ -8,7 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="min-h-screen overflow-x-hidden">
         <ScrollToTop />
         <Navbar />
@@ -19,6 +19,6 @@ export default function App() {
         </Routes>
         <Footer />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
