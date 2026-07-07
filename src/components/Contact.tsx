@@ -32,7 +32,7 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">{t('callUs')}</p>
+                  <p className="text-xs text-stone-500 font-bold uppercase tracking-widest">{t('callUs')}</p>
                   <a href="tel:+34632476557" className="text-stone-900 font-medium hover:text-rose-600 transition-colors">+34 632 47 65 57</a>
                 </div>
               </div>
@@ -42,7 +42,7 @@ export default function Contact() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">{t('emailUs')}</p>
+                  <p className="text-xs text-stone-500 font-bold uppercase tracking-widest">{t('emailUs')}</p>
                   <a href="mailto:hola@wedding-care.com" className="text-stone-900 font-medium hover:text-rose-600 transition-colors">hola@wedding-care.com</a>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <p className="text-xs text-stone-400 font-bold uppercase tracking-widest">{t('office')}</p>
+                  <p className="text-xs text-stone-500 font-bold uppercase tracking-widest">{t('office')}</p>
                   <p className="text-stone-900 font-medium">{t('officeAddress')}</p>
                 </div>
               </div>
@@ -68,8 +68,9 @@ export default function Contact() {
             <SiteJourneyForm formType="quote" successMessage={t('successMessage')}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('fullName')}</label>
+                  <label htmlFor="contact-form-name" className="block text-xs font-bold text-stone-500 uppercase tracking-widest mb-2">{t('fullName')}</label>
                   <input
+                    id="contact-form-name"
                     name="name"
                     type="text"
                     required
@@ -77,8 +78,9 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('emailAddress')}</label>
+                  <label htmlFor="contact-form-email" className="block text-xs font-bold text-stone-500 uppercase tracking-widest mb-2">{t('emailAddress')}</label>
                   <input
+                    id="contact-form-email"
                     name="email"
                     type="email"
                     required
@@ -89,16 +91,18 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('weddingDate')}</label>
+                  <label htmlFor="contact-form-date" className="block text-xs font-bold text-stone-500 uppercase tracking-widest mb-2">{t('weddingDate')}</label>
                   <input
+                    id="contact-form-date"
                     name="date"
                     type="date"
                     className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('package')}</label>
+                  <label htmlFor="contact-form-package" className="block text-xs font-bold text-stone-500 uppercase tracking-widest mb-2">{t('package')}</label>
                   <select
+                    id="contact-form-package"
                     name="package"
                     className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"
                   >
@@ -111,8 +115,9 @@ export default function Contact() {
               </div>
 
               <div className="mb-8">
-                <label className="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{t('message')}</label>
+                <label htmlFor="contact-form-message" className="block text-xs font-bold text-stone-500 uppercase tracking-widest mb-2">{t('message')}</label>
                 <textarea
+                  id="contact-form-message"
                   name="message"
                   rows={4}
                   className="w-full bg-white border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 transition-all"

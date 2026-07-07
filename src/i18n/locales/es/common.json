@@ -15,6 +15,10 @@
     "switchToEs": "Cambiar a español",
     "switchToEn": "Switch to English"
   },
+  "mobileMenu": {
+    "open": "Abrir menú",
+    "close": "Cerrar menú"
+  },
   "readMore": "Leer Más",
   "byAuthor": "por {{author}}"
 }

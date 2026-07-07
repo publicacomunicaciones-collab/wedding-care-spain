@@ -62,7 +62,7 @@ export default function HomePage() {
             {stats.map((stat, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm">
                 <h4 className="font-display italic text-3xl text-rose-500 mb-2">{stat.value}</h4>
-                <p className="text-stone-400 text-xs font-bold uppercase tracking-widest">{stat.label}</p>
+                <p className="text-stone-500 text-xs font-bold uppercase tracking-widest">{stat.label}</p>
               </div>
             ))}
           </div>

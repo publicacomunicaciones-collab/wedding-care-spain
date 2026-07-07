@@ -104,10 +104,12 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           id="mobile-menu-toggle-v7n2m9x1"
           className="lg:hidden text-gray-900"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? t('mobileMenu.close') : t('mobileMenu.open')}
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? (
             <X className={scrolled ? 'text-stone-900' : 'text-white'} />
