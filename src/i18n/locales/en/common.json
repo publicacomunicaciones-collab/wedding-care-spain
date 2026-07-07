@@ -3,10 +3,12 @@
     "services": "SERVICES",
     "ourStory": "OUR STORY",
     "blog": "BLOG",
+    "faq": "FAQ",
     "getQuote": "GET QUOTE",
     "servicesMobile": "Services",
     "ourStoryMobile": "Our Story",
     "blogMobile": "Blog",
+    "faqMobile": "FAQ",
     "requestPricing": "Request Pricing"
   },
   "langToggle": {

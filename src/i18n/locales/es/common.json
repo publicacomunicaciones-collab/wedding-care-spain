@@ -3,10 +3,12 @@
     "services": "SERVICIOS",
     "ourStory": "NUESTRA HISTORIA",
     "blog": "BLOG",
+    "faq": "FAQ",
     "getQuote": "PEDIR PRESUPUESTO",
     "servicesMobile": "Servicios",
     "ourStoryMobile": "Nuestra Historia",
     "blogMobile": "Blog",
+    "faqMobile": "Preguntas Frecuentes",
     "requestPricing": "Solicitar Precios"
   },
   "langToggle": {

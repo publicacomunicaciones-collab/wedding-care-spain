@@ -1,0 +1,31 @@
+{
+  "heading1": "Frequently Asked",
+  "heading2": "Questions",
+  "subtext": "Answers to the questions we hear most often about our wedding childcare service.",
+  "items": [
+    {
+      "question": "How far in advance should I book the service?",
+      "answer": "We recommend booking three to six months before the wedding, especially during peak season (May to October). This lets us match the number of caregivers to your final guest list."
+    },
+    {
+      "question": "How many caregivers do we need for our guests?",
+      "answer": "It depends on the children's ages: for infants and children under 2 we recommend one caregiver per 3-4 children, and for children aged 6 to 10, one per 8-10. We adjust the team based on your confirmed guest list."
+    },
+    {
+      "question": "What happens if a child gets sick or hurt?",
+      "answer": "Our team carries a first-aid kit and follows clear protocols for contacting parents or, if needed, medical services. Before the event we collect contact details and any relevant allergies."
+    },
+    {
+      "question": "Which areas do you work in?",
+      "answer": "We provide childcare services in Barcelona and throughout Catalonia. If your wedding is elsewhere, get in touch and we'll confirm availability."
+    },
+    {
+      "question": "What training does the caregiving team have?",
+      "answer": "All our caregivers hold pediatric first-aid training, demonstrable group-care experience, and a current certificate confirming no record of sexual offenses."
+    },
+    {
+      "question": "Does the service include activities and materials?",
+      "answer": "Yes, we plan and provide activity materials (crafts, games, sensory kits) matched to the confirmed ages, so you don't need to bring anything extra."
+    }
+  ]
+}

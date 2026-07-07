@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
+import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -64,6 +65,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <FAQ />
 
       <Contact />
     </main>

@@ -84,6 +84,13 @@ export default function Navbar() {
           >
             {t('nav.blog')}
           </button>
+          <button
+            id="nav-link-faq-t4y6u8i0"
+            onClick={() => handleNavigation('faq-section-t4y6u8i0')}
+            className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
+          >
+            {t('nav.faq')}
+          </button>
           <LanguageToggle scrolled={scrolled} />
           <button
             id="nav-cta-btn-q1w2e3r4"
@@ -133,6 +140,12 @@ export default function Navbar() {
             onClick={handleBlogNavigate}
           >
             {t('nav.blogMobile')}
+          </button>
+          <button
+            className="text-2xl font-light hover: text-white"
+            onClick={() => handleNavigation('faq-section-t4y6u8i0')}
+          >
+            {t('nav.faqMobile')}
           </button>
           <LanguageToggle dark />
           <button

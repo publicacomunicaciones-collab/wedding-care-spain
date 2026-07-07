@@ -1,0 +1,31 @@
+{
+  "heading1": "Preguntas",
+  "heading2": "Frecuentes",
+  "subtext": "Resolvemos las dudas más habituales sobre nuestro servicio de cuidado infantil para bodas.",
+  "items": [
+    {
+      "question": "¿Con cuánta antelación debo reservar el servicio?",
+      "answer": "Recomendamos reservar entre tres y seis meses antes de la boda, especialmente en temporada alta (mayo a octubre). Así podemos ajustar el número de cuidadoras a tu lista final de invitados."
+    },
+    {
+      "question": "¿Cuántas cuidadoras necesitamos para nuestros invitados?",
+      "answer": "Depende de la edad de los niños: para bebés y menores de 2 años recomendamos una cuidadora por cada 3-4 niños, y para niños de 6 a 10 años, una por cada 8-10. Ajustamos el equipo según tu lista de invitados confirmada."
+    },
+    {
+      "question": "¿Qué pasa si un niño se pone enfermo o se hace daño?",
+      "answer": "Nuestro equipo lleva botiquín de primeros auxilios y sigue protocolos claros para contactar con los padres o, si es necesario, con servicios médicos. Antes del evento recogemos los datos de contacto y cualquier alergia relevante."
+    },
+    {
+      "question": "¿En qué zonas trabajáis?",
+      "answer": "Ofrecemos nuestro servicio de cuidado infantil en Barcelona y toda Cataluña. Si tu boda es en otra zona, escríbenos y te confirmamos disponibilidad."
+    },
+    {
+      "question": "¿Qué formación tiene el equipo de cuidadoras?",
+      "answer": "Todas nuestras cuidadoras cuentan con formación en primeros auxilios pediátricos, experiencia demostrable en cuidado de grupos y el certificado de delitos de naturaleza sexual actualizado."
+    },
+    {
+      "question": "¿El servicio incluye actividades y materiales?",
+      "answer": "Sí, planificamos y aportamos el material de las actividades (manualidades, juegos, kits sensoriales) adaptado a las edades confirmadas, sin que tengas que preocuparte de traer nada adicional."
+    }
+  ]
+}
