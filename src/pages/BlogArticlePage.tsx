@@ -65,7 +65,7 @@ const renderBody = (body: string): React.ReactNode[] => {
 };
 
 const BlogArticlePage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation(['blogArticle', 'blogPosts', 'common']);
 
@@ -77,8 +77,7 @@ const BlogArticlePage: React.FC = () => {
     body: translatedPosts[meta.id].body,
   }));
 
-  const articleId = id ? parseInt(id, 10) : null;
-  const article = articleId ? blogPosts.find((post) => post.id === articleId) : null;
+  const article = slug ? blogPosts.find((post) => post.slug === slug) : null;
 
   useEffect(() => {
     // Set title and meta description dynamically for article page

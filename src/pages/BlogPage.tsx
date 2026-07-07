@@ -160,7 +160,7 @@ const BlogPage: React.FC = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <Link
-                      to={`/blog/${post.id}`}
+                      to={`/blog/${post.slug}`}
                       className="inline-flex items-center text-rose-500 font-semibold hover:text-rose-600 transition-colors"
                     >
                       {t('common:readMore')}

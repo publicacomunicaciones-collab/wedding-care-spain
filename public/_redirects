@@ -1,1 +1,13 @@
+# 301 redirects: old numeric blog IDs -> new SEO slugs
+/blog/1   /blog/actividades-para-ninos-en-bodas-guia-completa                   301
+/blog/2   /blog/como-disenar-un-banquete-de-boda-apto-para-ninos                301
+/blog/3   /blog/seguridad-infantil-en-bodas-buenas-practicas                    301
+/blog/4   /blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda      301
+/blog/5   /blog/como-gestionar-distintos-grupos-de-edad-en-una-boda             301
+/blog/6   /blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas            301
+/blog/7   /blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda                   301
+/blog/8   /blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda        301
+/blog/9   /blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas         301
+
+# SPA fallback for client-side routing
 /*   /index.html   200
