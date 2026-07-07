@@ -22,6 +22,29 @@
 </head>
 <body>
   <div id="root"></div>
+
+  <!--
+    Static mirror of the Contact form (src/components/SiteJourneyForm.tsx)
+    so Netlify's build bot can detect it at build time. The real form is
+    rendered client-side by React and is never present in this static
+    HTML, so Netlify Forms would otherwise never see it. This form is
+    never displayed or submitted directly.
+    https://docs.netlify.com/manage/forms/setup/#javascript-rendered-forms
+  -->
+  <form name="contact" data-netlify="true" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="date" name="date" />
+    <select name="package">
+      <option>Essential</option>
+      <option>Full Wedding</option>
+      <option>Premium</option>
+      <option>Custom</option>
+    </select>
+    <textarea name="message"></textarea>
+    <input type="hidden" name="form-type" />
+  </form>
+
   <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

@@ -9,11 +9,14 @@ interface SiteJourneyFormProps {
   onSuccess?: () => void;
 }
 
-declare global {
-  interface Window {
-    __FORM_API_URL__?: string;
-    __SITE_ID__?: string;
-  }
+const FORM_NAME = 'contact';
+
+// Netlify's documented encoding for AJAX form submissions:
+// https://docs.netlify.com/manage/forms/setup/#submit-html-forms-with-ajax
+function encodeFormData(data: Record<string, string>): string {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
 }
 
 export default function SiteJourneyForm({
@@ -32,13 +35,6 @@ export default function SiteJourneyForm({
     e.preventDefault();
     const form = e.currentTarget;
 
-    // If the form has an external action, let the browser handle it natively
-    const action = form.getAttribute('action');
-    if (action && action.startsWith('http')) {
-      form.submit();
-      return;
-    }
-
     setStatus('submitting');
     setErrorMsg('');
 
@@ -49,14 +45,10 @@ export default function SiteJourneyForm({
     });
 
     try {
-      const apiUrl = window.__FORM_API_URL__;
-      const siteId = window.__SITE_ID__;
-      if (!apiUrl || !siteId) throw new Error('Form service not configured');
-
-      const res = await fetch(apiUrl, {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ siteId, formType: formType || undefined, payload }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeFormData(payload),
       });
 
       if (!res.ok) throw new Error('Submission failed');
@@ -88,7 +80,15 @@ export default function SiteJourneyForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className={className}>
+    <form
+      name={FORM_NAME}
+      method="POST"
+      data-netlify="true"
+      onSubmit={handleSubmit}
+      className={className}
+    >
+      <input type="hidden" name="form-name" value={FORM_NAME} />
+      {formType && <input type="hidden" name="form-type" value={formType} />}
       {children}
       {status === 'error' && (
         <p className="text-red-600 text-sm mt-2">{errorMsg}</p>
