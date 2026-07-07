@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { blogPostsMeta } from '../data/blogPosts';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 interface BlogPostText {
   title: string;
@@ -79,16 +80,10 @@ const BlogArticlePage: React.FC = () => {
 
   const article = slug ? blogPosts.find((post) => post.slug === slug) : null;
 
-  useEffect(() => {
-    // Set title and meta description dynamically for article page
-    if (article) {
-      document.title = `${article.title} | WeddingCare Barcelona`;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', article.excerpt);
-      }
-    }
-  }, [article]);
+  useDocumentMeta(
+    article ? `${article.title} | WeddingCare Barcelona` : t('blogArticle:notFoundTitle'),
+    article ? article.excerpt : t('blogArticle:notFoundText')
+  );
 
   const formatDate = (dateString: string): string => {
     const options: Intl.DateTimeFormatOptions = {

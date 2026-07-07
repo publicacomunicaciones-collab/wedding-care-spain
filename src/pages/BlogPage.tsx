@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { blogPostsMeta } from '../data/blogPosts';
 import { unlockHeroScroll } from '../utils/heroScrollLock';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 interface BlogPostText {
   title: string;
@@ -22,14 +23,7 @@ const BlogPage: React.FC = () => {
     excerpt: translatedPosts[meta.id].excerpt,
   }));
 
-  useEffect(() => {
-    // Set title and meta description dynamically for blog page
-    document.title = t('blog:metaTitle');
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', t('blog:metaDescription'));
-    }
-  }, [t]);
+  useDocumentMeta(t('blog:metaTitle'), t('blog:metaDescription'));
 
   const containerVariants = {
     hidden: { opacity: 0 },

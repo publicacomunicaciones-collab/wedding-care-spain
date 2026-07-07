@@ -2,8 +2,10 @@ import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import ScrollExpandMedia from './ScrollExpandMedia';
 import { unlockHeroScroll } from '../utils/heroScrollLock';
-import heroBg from '../assets/hero-bg.png';
-import heroMedia from '../assets/hero-media.png';
+import heroBg from '../assets/hero-bg.jpg';
+import heroBgWebp from '../assets/hero-bg.webp';
+import heroMedia from '../assets/hero-media.jpg';
+import heroMediaWebp from '../assets/hero-media.webp';
 
 export default function Hero() {
   const { t } = useTranslation('hero');
@@ -13,7 +15,9 @@ export default function Hero() {
       <ScrollExpandMedia
         mediaType="image"
         mediaSrc={heroMedia}
+        mediaSrcWebp={heroMediaWebp}
         bgImageSrc={heroBg}
+        bgImageSrcWebp={heroBgWebp}
         title={t('title')}
         titleLine2={t('titleLine2')}
         date={t('date')}

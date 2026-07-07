@@ -11,8 +11,10 @@ import { HERO_UNLOCK_EVENT } from '../utils/heroScrollLock';
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image';
   mediaSrc: string;
+  mediaSrcWebp?: string;
   posterSrc?: string;
   bgImageSrc: string;
+  bgImageSrcWebp?: string;
   title?: string;
   titleLine2?: string;
   date?: string;
@@ -24,8 +26,10 @@ interface ScrollExpandMediaProps {
 const ScrollExpandMedia = ({
   mediaType = 'video',
   mediaSrc,
+  mediaSrcWebp,
   posterSrc,
   bgImageSrc,
+  bgImageSrcWebp,
   title,
   titleLine2,
   date,
@@ -168,15 +172,18 @@ const ScrollExpandMedia = ({
             animate={{ opacity: 1 - scrollProgress }}
             transition={{ duration: 0.1 }}
           >
-            <img
-              src={bgImageSrc}
-              alt={t('backgroundAlt')}
-              className='w-screen h-screen'
-              style={{
-                objectFit: 'cover',
-                objectPosition: 'center',
-              }}
-            />
+            <picture>
+              {bgImageSrcWebp && <source srcSet={bgImageSrcWebp} type='image/webp' />}
+              <img
+                src={bgImageSrc}
+                alt={t('backgroundAlt')}
+                className='w-screen h-screen'
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
+            </picture>
             <div className='absolute inset-0 bg-black/10' />
           </motion.div>
 
@@ -218,11 +225,14 @@ const ScrollExpandMedia = ({
                   </div>
                 ) : (
                   <div className='relative w-full h-full'>
-                    <img
-                      src={mediaSrc}
-                      alt={title || 'Media content'}
-                      className='w-full h-full object-cover rounded-xl'
-                    />
+                    <picture>
+                      {mediaSrcWebp && <source srcSet={mediaSrcWebp} type='image/webp' />}
+                      <img
+                        src={mediaSrc}
+                        alt={title || 'Media content'}
+                        className='w-full h-full object-cover rounded-xl'
+                      />
+                    </picture>
 
                     <motion.div
                       className='absolute inset-0 bg-black/50 rounded-xl'

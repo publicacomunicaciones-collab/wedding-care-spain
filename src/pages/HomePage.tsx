@@ -6,6 +6,7 @@ import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 interface HomeStat {
   value: string;
@@ -15,6 +16,8 @@ interface HomeStat {
 export default function HomePage() {
   const { t } = useTranslation('home');
   const stats = t('stats', { returnObjects: true }) as HomeStat[];
+
+  useDocumentMeta(t('metaTitle'), t('metaDescription'));
 
   return (
     <main id="homepage-container-q1w2e3r4">

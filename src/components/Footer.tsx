@@ -47,16 +47,9 @@ export default function Footer() {
                 Wedding<span className="font-display italic ml-0.5">Care</span>
               </span>
             </div>
-            <p className="max-w-sm text-stone-500 leading-relaxed mb-6">
+            <p className="max-w-sm text-stone-500 leading-relaxed">
               {t('tagline')}
             </p>
-            <a rel="nofollow" href="https://www.bodas.net" title="Bodas.net" target="_blank">
-              <img
-                alt="Bodas.net"
-                src="https://www.bodas.net/images/sellos/Sello-bodas--gg300481.png"
-                style={{ borderWidth: '0px' }}
-              />
-            </a>
           </div>
 
           <div>

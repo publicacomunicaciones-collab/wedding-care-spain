@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Baby, Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import aboutMedia from '../assets/about-media.png';
+import aboutMediaWebp from '../assets/about-media.webp';
+import aboutMediaFallback from '../assets/about-media.jpg';
 
 const featureIcons = [ShieldCheck, Baby, Star];
 
@@ -65,11 +66,14 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={aboutMedia}
-                alt={t('imageAlt')}
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source srcSet={aboutMediaWebp} type="image/webp" />
+                <img
+                  src={aboutMediaFallback}
+                  alt={t('imageAlt')}
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-2xl shadow-xl hidden md:block max-w-xs">
               <p className="text-rose-500 font-display italic text-2xl mb-2">"{t('testimonialQuote')}"</p>
