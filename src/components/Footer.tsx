@@ -59,6 +59,7 @@ export default function Footer() {
               <li><button onClick={() => handleNavigation('services-section-f5w8n3r6')} className="hover:text-rose-400 transition-colors">{t('services')}</button></li>
               <li><button onClick={() => handleNavigation('about-section-m2k4n6p8')} className="hover:text-rose-400 transition-colors">{t('ourStory')}</button></li>
               <li><button onClick={() => handleNavigation(null, '/blog')} className="hover:text-rose-400 transition-colors">{t('blog')}</button></li>
+              <li><button onClick={() => handleNavigation('faq-section-t4y6u8i0')} className="hover:text-rose-400 transition-colors">{t('faq')}</button></li>
               <li><button onClick={() => handleNavigation('contact-section-h1j2k3l4')} className="hover:text-rose-400 transition-colors">{t('contact')}</button></li>
             </ul>
           </div>

@@ -9,6 +9,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 interface BlogPostText {
   title: string;
   excerpt: string;
+  imageAlt: string;
   body: string;
 }
 
@@ -21,9 +22,10 @@ const BlogPage: React.FC = () => {
     ...meta,
     title: translatedPosts[meta.id].title,
     excerpt: translatedPosts[meta.id].excerpt,
+    imageAlt: translatedPosts[meta.id].imageAlt,
   }));
 
-  useDocumentMeta(t('blog:metaTitle'), t('blog:metaDescription'));
+  useDocumentMeta(t('blog:metaTitle'), t('blog:metaDescription'), '/blog');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,16 +54,6 @@ const BlogPage: React.FC = () => {
         duration: 0.3,
       },
     },
-  };
-
-  const formatDate = (dateString: string): string => {
-    const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    };
-    const locale = i18n.language === 'es' ? 'es-ES' : 'en-US';
-    return new Date(dateString).toLocaleDateString(locale, options);
   };
 
   const handleGetQuoteClick = () => {
@@ -118,7 +110,7 @@ const BlogPage: React.FC = () => {
                 <div className="relative h-48 overflow-hidden bg-stone-200">
                   <img
                     src={post.image}
-                    alt={post.title}
+                    alt={post.imageAlt}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -138,14 +130,9 @@ const BlogPage: React.FC = () => {
 
                   {/* Meta Information */}
                   <div className="flex items-center justify-between mb-4 pt-4 border-t border-stone-200">
-                    <div className="flex flex-col">
-                      <span className="text-xs font-semibold text-rose-500">
-                        {formatDate(post.date)}
-                      </span>
-                      <span className="text-xs text-stone-500">
-                        {t('common:byAuthor', { author: post.author })}
-                      </span>
-                    </div>
+                    <span className="text-xs text-stone-500">
+                      {t('common:byAuthor', { author: post.author })}
+                    </span>
                   </div>
 
                   {/* Read More Link */}

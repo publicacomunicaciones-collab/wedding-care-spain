@@ -8,6 +8,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 interface BlogPostText {
   title: string;
   excerpt: string;
+  imageAlt: string;
   body: string;
 }
 
@@ -75,6 +76,7 @@ const BlogArticlePage: React.FC = () => {
     ...meta,
     title: translatedPosts[meta.id].title,
     excerpt: translatedPosts[meta.id].excerpt,
+    imageAlt: translatedPosts[meta.id].imageAlt,
     body: translatedPosts[meta.id].body,
   }));
 
@@ -82,18 +84,9 @@ const BlogArticlePage: React.FC = () => {
 
   useDocumentMeta(
     article ? `${article.title} | WeddingCare Barcelona` : t('blogArticle:notFoundTitle'),
-    article ? article.excerpt : t('blogArticle:notFoundText')
+    article ? article.excerpt : t('blogArticle:notFoundText'),
+    article ? `/blog/${article.slug}` : '/blog'
   );
-
-  const formatDate = (dateString: string): string => {
-    const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    };
-    const locale = i18n.language === 'es' ? 'es-ES' : 'en-US';
-    return new Date(dateString).toLocaleDateString(locale, options);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -191,7 +184,7 @@ const BlogArticlePage: React.FC = () => {
       >
         <img
           src={article.image}
-          alt={article.title}
+          alt={article.imageAlt}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
@@ -218,14 +211,9 @@ const BlogArticlePage: React.FC = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row sm:items-center gap-4 pb-8 border-b border-stone-200 mb-8"
           >
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold text-rose-500">
-                {formatDate(article.date)}
-              </span>
-              <span className="text-sm text-stone-600">
-                {t('common:byAuthor', { author: article.author })}
-              </span>
-            </div>
+            <span className="text-sm text-stone-600">
+              {t('common:byAuthor', { author: article.author })}
+            </span>
           </motion.div>
 
           {/* Article Body */}

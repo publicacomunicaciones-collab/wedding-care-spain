@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "clsx": "^2.1.0",
     "framer-motion": "^11.0.0",
     "i18next": "^26.3.4",
     "lucide-react": "^0.460.0",
