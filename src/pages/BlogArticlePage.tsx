@@ -10,6 +10,60 @@ interface BlogPostText {
   body: string;
 }
 
+const parseInline = (text: string): React.ReactNode[] => {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <strong key={i} className="font-semibold text-stone-900">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return <React.Fragment key={i}>{part}</React.Fragment>;
+  });
+};
+
+const renderBody = (body: string): React.ReactNode[] => {
+  const blocks = body.split('\n\n').filter(Boolean);
+  const elements: React.ReactNode[] = [];
+
+  blocks.forEach((block, idx) => {
+    const lines = block.split('\n').filter(Boolean);
+    const isList = lines.length > 0 && lines.every((line) => line.trim().startsWith('- '));
+
+    if (isList) {
+      elements.push(
+        <ul key={idx} className="list-disc pl-6 space-y-2 my-4">
+          {lines.map((line, i) => (
+            <li key={i}>{parseInline(line.trim().replace(/^- /, ''))}</li>
+          ))}
+        </ul>
+      );
+    } else if (block.startsWith('### ')) {
+      elements.push(
+        <h3 key={idx} className="text-xl font-bold text-stone-900 mt-8 mb-3">
+          {block.replace('### ', '')}
+        </h3>
+      );
+    } else if (block.startsWith('## ')) {
+      elements.push(
+        <h2 key={idx} className="text-2xl sm:text-3xl font-bold text-stone-900 mt-10 mb-4">
+          {block.replace('## ', '')}
+        </h2>
+      );
+    } else {
+      elements.push(
+        <p key={idx} className="leading-relaxed mb-4">
+          {parseInline(block)}
+        </p>
+      );
+    }
+  });
+
+  return elements;
+};
+
 const BlogArticlePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -19,6 +73,7 @@ const BlogArticlePage: React.FC = () => {
   const blogPosts = blogPostsMeta.map((meta) => ({
     ...meta,
     title: translatedPosts[meta.id].title,
+    excerpt: translatedPosts[meta.id].excerpt,
     body: translatedPosts[meta.id].body,
   }));
 
@@ -26,11 +81,12 @@ const BlogArticlePage: React.FC = () => {
   const article = articleId ? blogPosts.find((post) => post.id === articleId) : null;
 
   useEffect(() => {
-    // Set meta description dynamically for article page
+    // Set title and meta description dynamically for article page
     if (article) {
+      document.title = `${article.title} | WeddingCare Barcelona`;
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute('content', `${article.title}. ${article.body.substring(0, 100)}...`);
+        metaDesc.setAttribute('content', article.excerpt);
       }
     }
   }, [article]);
@@ -181,13 +237,9 @@ const BlogArticlePage: React.FC = () => {
           {/* Article Body */}
           <motion.div
             variants={itemVariants}
-            className="prose prose-lg max-w-none text-stone-700 space-y-6"
+            className="prose prose-lg max-w-none text-stone-700"
           >
-            {article.body.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+            {renderBody(article.body)}
           </motion.div>
 
           {/* Author Bio Section */}

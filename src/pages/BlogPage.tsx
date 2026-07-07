@@ -22,7 +22,8 @@ const BlogPage: React.FC = () => {
   }));
 
   useEffect(() => {
-    // Set meta description dynamically for blog page
+    // Set title and meta description dynamically for blog page
+    document.title = t('blog:metaTitle');
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute('content', t('blog:metaDescription'));

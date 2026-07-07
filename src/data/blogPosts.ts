@@ -42,4 +42,22 @@ export const blogPostsMeta: BlogPostMeta[] = [
     author: 'Laura',
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
+  {
+    id: 7,
+    date: '2023-12-08',
+    author: 'Sarah',
+    image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 8,
+    date: '2023-12-01',
+    author: 'Maria',
+    image: 'https://images.unsplash.com/photo-1614113036347-9f60df80730a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODY5NjV8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMGhhdmluZyUyMGZ1bnxlbnwwfDB8fHwxNzgyODU0MDAxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 9,
+    date: '2023-11-24',
+    author: 'Elena',
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  },
 ];
