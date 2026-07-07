@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, Clock, Users, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { packagesMeta } from '../data/packages';
+import { unlockHeroScroll } from '../utils/heroScrollLock';
 
 interface PackageText {
   name: string;
@@ -87,7 +88,7 @@ export default function Services() {
               </ul>
 
               <button 
-                onClick={() => document.getElementById('contact-section-h1j2k3l4')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { unlockHeroScroll(); document.getElementById('contact-section-h1j2k3l4')?.scrollIntoView({ behavior: 'smooth' }); }}
                 className={`w-full mt-12 py-4 rounded-xl text-sm font-semibold tracking-widest transition-colors ${
                   pkg.highlight 
                     ? 'bg-white text-stone-900 hover:bg-stone-100' 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Heart } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { unlockHeroScroll } from '../utils/heroScrollLock';
 
 export default function Footer() {
   const { t } = useTranslation('footer');
@@ -15,6 +16,7 @@ export default function Footer() {
       // Schedule scroll after navigation completes
       if (sectionId) {
         setTimeout(() => {
+          unlockHeroScroll();
           document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       } else {
@@ -26,6 +28,7 @@ export default function Footer() {
     } else {
       // Already on target path, scroll directly
       if (sectionId) {
+        unlockHeroScroll();
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Heart } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from './LanguageToggle';
+import { unlockHeroScroll } from '../utils/heroScrollLock';
 
 export default function Navbar() {
   const { t } = useTranslation('common');
@@ -24,6 +25,7 @@ export default function Navbar() {
 
   const scrollTo = (id: string) => {
     setMobileMenuOpen(false);
+    unlockHeroScroll();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 

@@ -6,6 +6,7 @@ import {
 } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { HERO_UNLOCK_EVENT } from '../utils/heroScrollLock';
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image';
@@ -128,6 +129,16 @@ const ScrollExpandMedia = ({
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [scrollProgress, mediaFullyExpanded, touchStartY]);
+
+  useEffect(() => {
+    const handleUnlock = (): void => {
+      setMediaFullyExpanded(true);
+      setShowContent(true);
+    };
+
+    window.addEventListener(HERO_UNLOCK_EVENT, handleUnlock);
+    return () => window.removeEventListener(HERO_UNLOCK_EVENT, handleUnlock);
+  }, []);
 
   useEffect(() => {
     const checkIfMobile = (): void => {
