@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Heart } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from './LanguageToggle';
-import { unlockHeroScroll } from '../utils/heroScrollLock';
 
 export default function Navbar() {
   const { t } = useTranslation('common');
@@ -23,39 +22,23 @@ export default function Navbar() {
     }
   }, [isHome]);
 
-  const scrollTo = (id: string) => {
+  const goTo = (path: string) => {
     setMobileMenuOpen(false);
-    unlockHeroScroll();
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleNavigation = (sectionId: string) => {
-    setMobileMenuOpen(false);
-    if (isHome) {
-      scrollTo(sectionId);
-    } else {
-      navigate('/');
-      setTimeout(() => scrollTo(sectionId), 100);
-    }
-  };
-
-  const handleBlogNavigate = () => {
-    setMobileMenuOpen(false);
-    navigate('/blog');
+    navigate(path);
   };
 
   return (
-    <nav 
+    <nav
       id="navbar-container-v7m2n9x1"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <div 
-          data-role="logo" 
+        <div
+          data-role="logo"
           className="flex items-center gap-2 cursor-pointer"
-          onClick={() => navigate('/')}
+          onClick={() => goTo('/')}
         >
           <Heart className={scrolled ? 'text-rose-500' : 'text-rose-200'} size={24} />
           <span className={`font-sans text-xl tracking-tight ${scrolled ? 'text-stone-900 font-medium' : 'text-white font-light'}`}>
@@ -65,37 +48,37 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">
-          <button 
-            id="nav-link-services-x2n8p1m3" 
-            onClick={() => handleNavigation('services-section-f5w8n3r6')}
+          <button
+            id="nav-link-services-x2n8p1m3"
+            onClick={() => goTo('/servicios')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.services')}
           </button>
           <button
             id="nav-link-about-k7j2l4p9"
-            onClick={() => handleNavigation('about-section-m2k4n6p8')}
+            onClick={() => goTo('/nuestra-historia')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.ourStory')}
           </button>
           <button
             id="nav-link-blog-x3n8p1m3"
-            onClick={handleBlogNavigate}
+            onClick={() => goTo('/blog')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.blog')}
           </button>
           <button
             id="nav-link-testimonials-p5t7r9y1"
-            onClick={() => handleNavigation('testimonials-section-w3e5r7t9')}
+            onClick={() => goTo('/testimonios')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.testimonials')}
           </button>
           <button
             id="nav-link-faq-t4y6u8i0"
-            onClick={() => handleNavigation('faq-section-t4y6u8i0')}
+            onClick={() => goTo('/faq')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.faq')}
@@ -103,7 +86,7 @@ export default function Navbar() {
           <LanguageToggle scrolled={scrolled} />
           <button
             id="nav-cta-btn-q1w2e3r4"
-            onClick={() => handleNavigation('contact-section-h1j2k3l4')}
+            onClick={() => goTo('/contacto')}
             className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest transition-all ${ scrolled ? 'bg-stone-900 text-white hover:bg-rose-600' : 'bg-white text-stone-900 hover:bg-rose-100' }`}
           >
             {t('nav.getQuote')}
@@ -127,7 +110,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div 
+      <div
         className={`fixed inset-0 bg-stone-900 transition-transform duration-500 ease-in-out lg:hidden ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
@@ -136,38 +119,38 @@ export default function Navbar() {
         <div className="flex flex-col items-center justify-center h-full gap-8">
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => handleNavigation('services-section-f5w8n3r6')}
+            onClick={() => goTo('/servicios')}
           >
             {t('nav.servicesMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => handleNavigation('about-section-m2k4n6p8')}
+            onClick={() => goTo('/nuestra-historia')}
           >
             {t('nav.ourStoryMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={handleBlogNavigate}
+            onClick={() => goTo('/blog')}
           >
             {t('nav.blogMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => handleNavigation('testimonials-section-w3e5r7t9')}
+            onClick={() => goTo('/testimonios')}
           >
             {t('nav.testimonialsMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => handleNavigation('faq-section-t4y6u8i0')}
+            onClick={() => goTo('/faq')}
           >
             {t('nav.faqMobile')}
           </button>
           <LanguageToggle dark />
           <button
             className="mt-4 px-10 py-4 bg-rose-500 rounded-full text-lg font-medium text-white"
-            onClick={() => handleNavigation('contact-section-h1j2k3l4')}
+            onClick={() => goTo('/contacto')}
           >
             {t('nav.requestPricing')}
           </button>

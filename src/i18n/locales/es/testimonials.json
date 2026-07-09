@@ -1,10 +1,13 @@
 {
+  "metaTitle": "Testimonios | WeddingCare Barcelona",
+  "metaDescription": "Lo que dicen las parejas y profesionales del sector sobre el servicio de cuidado infantil de WeddingCare Barcelona en sus bodas.",
   "badge": "Testimonios",
   "heading1": "Lo que dicen",
   "heading2": "las parejas",
   "subtitle": "Testimonios placeholder. Sustituiremos cada uno por reseñas reales verificadas en cuanto estén disponibles.",
   "couplesLabel": "Parejas",
   "professionalsLabel": "Profesionales",
+  "viewAll": "Ver Todos los Testimonios",
   "couples": [
     {
       "quote": "Lo que más nos quitaba el sueño era Lucía, la pequeña de 2 años — no dormía siesta fuera de casa. Una de las cuidadoras vino a casa dos veces antes de la boda solo para que se familiarizara con ella. El día de la boda durmió su siesta en el rincón. Nosotros pudimos bailar la fiesta padre-hija tranquilos. Eso no tiene precio.",

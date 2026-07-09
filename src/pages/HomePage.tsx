@@ -36,7 +36,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <About />
+      <About preview />
       
       {/* Quote Section */}
       <section className="py-24 bg-rose-50 text-center overflow-hidden">
@@ -55,7 +55,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Services />
+      <Services preview />
       
       <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -70,11 +70,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Testimonials />
+      <Testimonials preview />
 
-      <FAQ />
+      <FAQ preview />
 
-      <Contact />
+      <Contact preview />
     </main>
   );
 }

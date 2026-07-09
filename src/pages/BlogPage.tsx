@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { blogPostsMeta } from '../data/blogPosts';
-import { unlockHeroScroll } from '../utils/heroScrollLock';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 interface BlogPostText {
@@ -57,14 +56,7 @@ const BlogPage: React.FC = () => {
   };
 
   const handleGetQuoteClick = () => {
-    navigate('/');
-    setTimeout(() => {
-      unlockHeroScroll();
-      const element = document.getElementById('contact-section-h1j2k3l4');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    navigate('/contacto');
   };
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Baby, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ShieldCheck, Baby, Star, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import aboutMediaWebp from '../assets/about-media.webp';
 import aboutMediaFallback from '../assets/about-media.jpg';
@@ -12,13 +13,18 @@ interface AboutFeature {
   desc: string;
 }
 
-export default function About() {
+interface AboutProps {
+  preview?: boolean;
+}
+
+export default function About({ preview = false }: AboutProps) {
   const { t } = useTranslation('about');
+  const navigate = useNavigate();
   const features = t('features', { returnObjects: true }) as AboutFeature[];
 
   return (
-    <section 
-      id="about-section-m2k4n6p8" 
+    <section
+      id="about-section-m2k4n6p8"
       className="py-24 md:py-32 bg-stone-50 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,26 +42,38 @@ export default function About() {
             <p className="text-stone-600 text-lg leading-relaxed mb-6">
               {t('paragraph1')}
             </p>
-            <p className="text-stone-600 text-lg leading-relaxed mb-10">
-              {t('paragraph2')}
-            </p>
 
-            <div className="grid grid-cols-1 gap-6">
-              {features.map((item, idx) => {
-                const Icon = featureIcons[idx];
-                return (
-                  <div key={idx} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <Icon className="text-rose-500" size={28} />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-stone-900">{item.title}</h3>
-                      <p className="text-stone-500 text-sm">{item.desc}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            {preview ? (
+              <button
+                onClick={() => navigate('/nuestra-historia')}
+                className="inline-flex items-center gap-2 text-rose-600 font-semibold hover:text-rose-700 transition-colors"
+              >
+                {t('viewMore')} <ArrowRight size={18} />
+              </button>
+            ) : (
+              <>
+                <p className="text-stone-600 text-lg leading-relaxed mb-10">
+                  {t('paragraph2')}
+                </p>
+
+                <div className="grid grid-cols-1 gap-6">
+                  {features.map((item, idx) => {
+                    const Icon = featureIcons[idx];
+                    return (
+                      <div key={idx} className="flex gap-4">
+                        <div className="flex-shrink-0">
+                          <Icon className="text-rose-500" size={28} />
+                        </div>
+                        <div>
+                          <h3 className="font-medium text-stone-900">{item.title}</h3>
+                          <p className="text-stone-500 text-sm">{item.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
           </motion.div>
 
           <motion.div

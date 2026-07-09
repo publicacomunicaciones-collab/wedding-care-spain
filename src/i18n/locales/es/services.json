@@ -1,9 +1,12 @@
 {
+  "metaTitle": "Servicios y Paquetes | WeddingCare Barcelona",
+  "metaDescription": "Tres paquetes de cuidado infantil para bodas en Barcelona: Esencial, Boda Completa y Premium. Cuidadoras certificadas, actividades por edad y precios desde 350€.",
   "heading1": "Nuestros Paquetes",
   "heading2": "de Cuidado",
   "subtext": "Elige el nivel de cuidado perfecto para tu celebración. Cada paquete es totalmente personalizable según tu espacio y estilo.",
   "mostPopular": "MÁS POPULAR",
   "selectPackage": "ELEGIR PAQUETE",
+  "viewAll": "Ver Todos los Servicios",
   "footnotePrefix": "* ¿Necesitas un horario específico? Horas extra disponibles a",
   "footnoteHighlight": "25-30€/h por cuidadora",
   "packages": {

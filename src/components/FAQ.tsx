@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Plus, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface FaqItem {
@@ -8,9 +9,15 @@ interface FaqItem {
   answer: string;
 }
 
-export default function FAQ() {
+interface FAQProps {
+  preview?: boolean;
+}
+
+export default function FAQ({ preview = false }: FAQProps) {
   const { t } = useTranslation('faq');
-  const items = t('items', { returnObjects: true }) as FaqItem[];
+  const navigate = useNavigate();
+  const allItems = t('items', { returnObjects: true }) as FaqItem[];
+  const items = preview ? allItems.slice(0, 3) : allItems;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (idx: number) => {
@@ -79,6 +86,17 @@ export default function FAQ() {
             );
           })}
         </div>
+
+        {preview && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => navigate('/faq')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-full text-sm font-semibold tracking-widest hover:bg-rose-600 transition-colors"
+            >
+              {t('viewAll')} <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

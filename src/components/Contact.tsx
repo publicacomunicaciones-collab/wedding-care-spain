@@ -1,11 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SiteJourneyForm from './SiteJourneyForm';
 
-export default function Contact() {
+interface ContactProps {
+  preview?: boolean;
+}
+
+export default function Contact({ preview = false }: ContactProps) {
   const { t } = useTranslation('contact');
+  const navigate = useNavigate();
   return (
     <section 
       id="contact-section-h1j2k3l4" 
@@ -63,8 +69,19 @@ export default function Contact() {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-stone-50 p-8 md:p-12 rounded-3xl shadow-sm border border-stone-100"
+            className={`bg-stone-50 rounded-3xl shadow-sm border border-stone-100 ${preview ? 'p-8 md:p-12 flex flex-col items-center justify-center text-center' : 'p-8 md:p-12'}`}
           >
+          {preview ? (
+            <>
+              <p className="text-stone-600 text-lg mb-8">{t('intro')}</p>
+              <button
+                onClick={() => navigate('/contacto')}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-xl text-sm font-semibold tracking-widest hover:bg-rose-600 transition-colors"
+              >
+                {t('viewMore')} <ArrowRight size={18} />
+              </button>
+            </>
+          ) : (
             <SiteJourneyForm formType="quote" successMessage={t('successMessage')}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -131,6 +148,7 @@ export default function Contact() {
                 {t('submit')}
               </button>
             </SiteJourneyForm>
+          )}
           </motion.div>
         </div>
       </div>

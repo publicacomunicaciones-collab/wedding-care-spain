@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Star, Quote, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface Testimonial {
@@ -55,10 +56,16 @@ function TestimonialCard({ testimonial, badgeClassName, delay }: TestimonialCard
   );
 }
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  preview?: boolean;
+}
+
+export default function Testimonials({ preview = false }: TestimonialsProps) {
   const { t } = useTranslation('testimonials');
-  const couples = t('couples', { returnObjects: true }) as Testimonial[];
+  const navigate = useNavigate();
+  const allCouples = t('couples', { returnObjects: true }) as Testimonial[];
   const professionals = t('professionals', { returnObjects: true }) as Testimonial[];
+  const couples = preview ? allCouples.slice(0, 3) : allCouples;
 
   return (
     <section id="testimonials-section-w3e5r7t9" className="py-24 md:py-32 bg-white">
@@ -82,10 +89,12 @@ export default function Testimonials() {
           </motion.div>
         </div>
 
-        <h3 className="text-xs font-bold uppercase tracking-widest text-stone-500 mb-6">
-          {t('couplesLabel')}
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {!preview && (
+          <h3 className="text-xs font-bold uppercase tracking-widest text-stone-500 mb-6">
+            {t('couplesLabel')}
+          </h3>
+        )}
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${preview ? '' : 'mb-16'}`}>
           {couples.map((testimonial, idx) => (
             <TestimonialCard
               key={idx}
@@ -96,19 +105,32 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <h3 className="text-xs font-bold uppercase tracking-widest text-stone-500 mb-6">
-          {t('professionalsLabel')}
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {professionals.map((testimonial, idx) => (
-            <TestimonialCard
-              key={idx}
-              testimonial={testimonial}
-              badgeClassName="bg-emerald-100 text-emerald-700"
-              delay={idx * 0.08}
-            />
-          ))}
-        </div>
+        {preview ? (
+          <div className="mt-16 text-center">
+            <button
+              onClick={() => navigate('/testimonios')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-full text-sm font-semibold tracking-widest hover:bg-rose-600 transition-colors"
+            >
+              {t('viewAll')} <ArrowRight size={18} />
+            </button>
+          </div>
+        ) : (
+          <>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-stone-500 mb-6">
+              {t('professionalsLabel')}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {professionals.map((testimonial, idx) => (
+                <TestimonialCard
+                  key={idx}
+                  testimonial={testimonial}
+                  badgeClassName="bg-emerald-100 text-emerald-700"
+                  delay={idx * 0.08}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

@@ -1,9 +1,12 @@
 {
+  "metaTitle": "Services & Packages | WeddingCare Barcelona",
+  "metaDescription": "Three wedding childcare packages in Barcelona: Essential, Full Wedding, and Premium. Certified caregivers, age-graded activities, and pricing from €350.",
   "heading1": "Our Care",
   "heading2": "Packages",
   "subtext": "Select the perfect level of care for your celebration. Each package is fully customizable to match your venue and style.",
   "mostPopular": "MOST POPULAR",
   "selectPackage": "SELECT PACKAGE",
+  "viewAll": "View All Services",
   "footnotePrefix": "* Need a specific timeframe? Extra hours available at",
   "footnoteHighlight": "25-30€/h per caregiver",
   "packages": {
