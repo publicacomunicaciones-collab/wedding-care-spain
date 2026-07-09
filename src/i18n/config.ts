@@ -13,6 +13,7 @@ import blogEn from './locales/en/blog.json';
 import blogArticleEn from './locales/en/blogArticle.json';
 import blogPostsEn from './locales/en/blogPosts.json';
 import faqEn from './locales/en/faq.json';
+import testimonialsEn from './locales/en/testimonials.json';
 
 import commonEs from './locales/es/common.json';
 import heroEs from './locales/es/hero.json';
@@ -26,6 +27,7 @@ import blogEs from './locales/es/blog.json';
 import blogArticleEs from './locales/es/blogArticle.json';
 import blogPostsEs from './locales/es/blogPosts.json';
 import faqEs from './locales/es/faq.json';
+import testimonialsEs from './locales/es/testimonials.json';
 
 export const LANG_STORAGE_KEY = 'wc-lang';
 
@@ -47,6 +49,7 @@ i18n.use(initReactI18next).init({
       blogArticle: blogArticleEn,
       blogPosts: blogPostsEn,
       faq: faqEn,
+      testimonials: testimonialsEn,
     },
     es: {
       common: commonEs,
@@ -61,6 +64,7 @@ i18n.use(initReactI18next).init({
       blogArticle: blogArticleEs,
       blogPosts: blogPostsEs,
       faq: faqEs,
+      testimonials: testimonialsEs,
     },
   },
   lng: initialLng,

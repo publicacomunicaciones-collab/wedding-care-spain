@@ -1,0 +1,54 @@
+{
+  "badge": "Muestra de Testimonios",
+  "heading1": "Lo que dicen",
+  "heading2": "las parejas",
+  "subtitle": "Testimonios placeholder. Sustituiremos cada uno por reseñas reales verificadas en cuanto estén disponibles.",
+  "couplesLabel": "Parejas",
+  "professionalsLabel": "Profesionales",
+  "couples": [
+    {
+      "quote": "Lo que más nos quitaba el sueño era Lucía, la pequeña de 2 años — no dormía siesta fuera de casa. Una de las cuidadoras vino a casa dos veces antes de la boda solo para que se familiarizara con ella. El día de la boda durmió su siesta en el rincón. Nosotros pudimos bailar la fiesta padre-hija tranquilos. Eso no tiene precio.",
+      "names": "Berta & Roger",
+      "venue": "Masía Can Calopa, Vallvidrera",
+      "badge": "Full Wedding",
+      "ages": "Edades: 2, 5 y 8 años"
+    },
+    {
+      "quote": "Teníamos cinco primos entre 4 y 11 años. La preocupación era que los mayores se aburrieran y los pequeños se sintieran excluidos. Lo que montaron fue un programa por franjas de edad con momentos compartidos: gymkana de uvas, taller de coronas, búsqueda del tesoro entre las barricas. Los mayores ayudaban a los pequeños. Fue una boda al 100%.",
+      "names": "Laia & Pol",
+      "venue": "Bodega Raventós i Blanc, Penedès",
+      "badge": "Premium",
+      "ages": "Edades: 4, 6, 7, 9 y 11 años"
+    },
+    {
+      "quote": "Nos casamos en una cala con 14 niños — muchos eran de fuera y no se conocían. Las cuidadoras organizaron juegos en la playa, taller de conchas y búsqueda del tesoro por las rocas. Hicieron piña en la primera hora. Las fotos de los niños corriendo por la arena son de las que más nos gustan del reportaje. Y los papás pudimos disfrutar del atardecer en paz.",
+      "names": "Joana & Marc",
+      "venue": "Cala Jóncols, Costa Brava",
+      "badge": "Full Wedding",
+      "ages": "Edades: 3, 6, 7 y 9 años"
+    },
+    {
+      "quote": "Nuestros hijos tienen 10 y 12 años — la edad difícil, en la que ya no quieren juegos de pintar pero tampoco quedarse con los mayores toda la noche. Les propusimos Wedding Care casi con vergüenza, pensando que se negarían. Les encantó: taller de fotografía, gymkana nocturna con linternas por el castillo y su propia cena secreta. Al acabar nos dijeron: 'ha sido la mejor noche de nuestra vida'.",
+      "names": "Marta & Carles",
+      "venue": "Castell de Tamarit, Tarragona",
+      "badge": "Full Wedding",
+      "ages": "Edades: 10 y 12 años"
+    },
+    {
+      "quote": "Boda pequeña de fin de semana, con ceremonia por la tarde y un cóctel largo. Contratamos el Essential para que los niños estuvieran entretenidos solo durante esas horas. Fue perfecto: 3 horas, una cuidadora, un par de talleres y merienda. Nuestros sobrinos todavía hablan de 'la seño del taller de galletas'. Y a nosotros nos liberó justo para el momento más importante del día.",
+      "names": "Ainoa & Dani",
+      "venue": "Masia El Castell de Ciuret, Osona",
+      "badge": "Essential",
+      "ages": "Edades: 4 y 6 años"
+    }
+  ],
+  "professionals": [
+    {
+      "quote": "Como wedding planner, recomiendo Wedding Care a todas mis parejas que celebran con niños. Son un equipo en el que sé que puedo confiar al 100%: llegan con tiempo, montan un espacio precioso adaptado al venue, las cuidadoras son encantadoras con los peques y con los padres, y la comunicación durante el evento es impecable. Para mí son un proveedor de cabecera.",
+      "names": "Alba Rovira",
+      "venue": "Alba & Co. Wedding Planner · Mallorca",
+      "badge": "Proveedor aliado",
+      "ages": "Recomendación profesional (B2B)"
+    }
+  ]
+}

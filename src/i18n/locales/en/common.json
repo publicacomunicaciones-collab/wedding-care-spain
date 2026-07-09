@@ -3,11 +3,13 @@
     "services": "SERVICES",
     "ourStory": "OUR STORY",
     "blog": "BLOG",
+    "testimonials": "TESTIMONIALS",
     "faq": "FAQ",
     "getQuote": "GET QUOTE",
     "servicesMobile": "Services",
     "ourStoryMobile": "Our Story",
     "blogMobile": "Blog",
+    "testimonialsMobile": "Testimonials",
     "faqMobile": "FAQ",
     "requestPricing": "Request Pricing"
   },

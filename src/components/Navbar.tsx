@@ -87,6 +87,13 @@ export default function Navbar() {
             {t('nav.blog')}
           </button>
           <button
+            id="nav-link-testimonials-p5t7r9y1"
+            onClick={() => handleNavigation('testimonials-section-w3e5r7t9')}
+            className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
+          >
+            {t('nav.testimonials')}
+          </button>
+          <button
             id="nav-link-faq-t4y6u8i0"
             onClick={() => handleNavigation('faq-section-t4y6u8i0')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
@@ -144,6 +151,12 @@ export default function Navbar() {
             onClick={handleBlogNavigate}
           >
             {t('nav.blogMobile')}
+          </button>
+          <button
+            className="text-2xl font-light hover: text-white"
+            onClick={() => handleNavigation('testimonials-section-w3e5r7t9')}
+          >
+            {t('nav.testimonialsMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
