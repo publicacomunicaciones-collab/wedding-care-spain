@@ -1,82 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wedding-care.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/servicios</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/servicios" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/servicios" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/servicios" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/servicios" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/nuestra-historia</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/nuestra-historia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/our-story" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/nuestra-historia" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/our-story</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/nuestra-historia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/our-story" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/nuestra-historia" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/testimonios</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/testimonios" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/testimonials" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/testimonios" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/testimonials</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/testimonios" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/testimonials" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/testimonios" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/faq</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/faq" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/faq</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/faq" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/contacto" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/contacto" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/actividades-para-ninos-en-bodas-guia-completa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/actividades-para-ninos-en-bodas-guia-completa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/actividades-para-ninos-en-bodas-guia-completa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/actividades-para-ninos-en-bodas-guia-completa" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/actividades-para-ninos-en-bodas-guia-completa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/actividades-para-ninos-en-bodas-guia-completa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/actividades-para-ninos-en-bodas-guia-completa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/actividades-para-ninos-en-bodas-guia-completa" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/como-disenar-un-banquete-de-boda-apto-para-ninos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/como-disenar-un-banquete-de-boda-apto-para-ninos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/como-disenar-un-banquete-de-boda-apto-para-ninos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/como-disenar-un-banquete-de-boda-apto-para-ninos" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/como-disenar-un-banquete-de-boda-apto-para-ninos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/como-disenar-un-banquete-de-boda-apto-para-ninos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/como-disenar-un-banquete-de-boda-apto-para-ninos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/como-disenar-un-banquete-de-boda-apto-para-ninos" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/seguridad-infantil-en-bodas-buenas-practicas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/seguridad-infantil-en-bodas-buenas-practicas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/seguridad-infantil-en-bodas-buenas-practicas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/seguridad-infantil-en-bodas-buenas-practicas" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/seguridad-infantil-en-bodas-buenas-practicas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/seguridad-infantil-en-bodas-buenas-practicas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/seguridad-infantil-en-bodas-buenas-practicas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/seguridad-infantil-en-bodas-buenas-practicas" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/por-que-el-cuidado-infantil-profesional-transforma-tu-boda" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/como-gestionar-distintos-grupos-de-edad-en-una-boda" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/preguntas-frecuentes-sobre-cuidado-infantil-en-bodas" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/cuanto-cuesta-el-cuidado-infantil-en-una-boda" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/como-elegir-el-servicio-de-cuidado-infantil-para-tu-boda" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wedding-care.com/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wedding-care.com/en/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wedding-care.com/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wedding-care.com/en/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wedding-care.com/blog/ideas-para-crear-una-zona-infantil-kids-corner-en-bodas" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

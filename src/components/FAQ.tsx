@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Plus, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { pagePath, getLangFromPath } from '../utils/localePaths';
 
 interface FaqItem {
   question: string;
@@ -16,6 +17,8 @@ interface FAQProps {
 export default function FAQ({ preview = false }: FAQProps) {
   const { t } = useTranslation('faq');
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
   const allItems = t('items', { returnObjects: true }) as FaqItem[];
   const items = preview ? allItems.slice(0, 3) : allItems;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -90,7 +93,7 @@ export default function FAQ({ preview = false }: FAQProps) {
         {preview && (
           <div className="mt-10 text-center">
             <button
-              onClick={() => navigate('/faq')}
+              onClick={() => navigate(pagePath('faq', lang))}
               className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-full text-sm font-semibold tracking-widest hover:bg-rose-600 transition-colors"
             >
               {t('viewAll')} <ArrowRight size={18} />

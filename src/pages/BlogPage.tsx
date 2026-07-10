@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { blogPostsMeta } from '../data/blogPosts';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
+import { pagePath, blogArticlePath, getLangFromPath } from '../utils/localePaths';
 
 interface BlogPostText {
   title: string;
@@ -14,6 +15,8 @@ interface BlogPostText {
 
 const BlogPage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
   const { t, i18n } = useTranslation(['blog', 'blogPosts', 'common']);
 
   const translatedPosts = (i18n.getResourceBundle(i18n.language, 'blogPosts') ?? {}) as Record<string, BlogPostText>;
@@ -24,7 +27,7 @@ const BlogPage: React.FC = () => {
     imageAlt: translatedPosts[meta.id].imageAlt,
   }));
 
-  useDocumentMeta(t('blog:metaTitle'), t('blog:metaDescription'), '/blog');
+  useDocumentMeta(t('blog:metaTitle'), t('blog:metaDescription'));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -56,7 +59,7 @@ const BlogPage: React.FC = () => {
   };
 
   const handleGetQuoteClick = () => {
-    navigate('/contacto');
+    navigate(pagePath('contact', lang));
   };
 
   return (
@@ -133,7 +136,7 @@ const BlogPage: React.FC = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <Link
-                      to={`/blog/${post.slug}`}
+                      to={blogArticlePath(post.slug, lang)}
                       className="inline-flex items-center text-rose-500 font-semibold hover:text-rose-600 transition-colors"
                     >
                       {t('common:readMore')}

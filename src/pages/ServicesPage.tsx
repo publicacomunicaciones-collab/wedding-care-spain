@@ -5,7 +5,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 export default function ServicesPage() {
   const { t } = useTranslation('services');
-  useDocumentMeta(t('metaTitle'), t('metaDescription'), '/servicios');
+  useDocumentMeta(t('metaTitle'), t('metaDescription'));
 
   return (
     <main className="min-h-screen">

@@ -18,7 +18,7 @@ export default function HomePage() {
   const { t } = useTranslation('home');
   const stats = t('stats', { returnObjects: true }) as HomeStat[];
 
-  useDocumentMeta(t('metaTitle'), t('metaDescription'), '/');
+  useDocumentMeta(t('metaTitle'), t('metaDescription'));
 
   return (
     <main id="homepage-container-q1w2e3r4">

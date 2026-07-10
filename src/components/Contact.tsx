@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SiteJourneyForm from './SiteJourneyForm';
+import { pagePath, getLangFromPath } from '../utils/localePaths';
 
 interface ContactProps {
   preview?: boolean;
@@ -12,6 +13,8 @@ interface ContactProps {
 export default function Contact({ preview = false }: ContactProps) {
   const { t } = useTranslation('contact');
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
   return (
     <section 
       id="contact-section-h1j2k3l4" 
@@ -75,7 +78,7 @@ export default function Contact({ preview = false }: ContactProps) {
             <>
               <p className="text-stone-600 text-lg mb-8">{t('intro')}</p>
               <button
-                onClick={() => navigate('/contacto')}
+                onClick={() => navigate(pagePath('contact', lang))}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-xl text-sm font-semibold tracking-widest hover:bg-rose-600 transition-colors"
               >
                 {t('viewMore')} <ArrowRight size={18} />

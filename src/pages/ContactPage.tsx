@@ -5,7 +5,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 export default function ContactPage() {
   const { t } = useTranslation('contact');
-  useDocumentMeta(t('metaTitle'), t('metaDescription'), '/contacto');
+  useDocumentMeta(t('metaTitle'), t('metaDescription'));
 
   return (
     <main className="min-h-screen">

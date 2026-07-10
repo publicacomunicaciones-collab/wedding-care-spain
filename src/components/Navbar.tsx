@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Heart } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from './LanguageToggle';
+import { pagePath, getLangFromPath, type PageKey } from '../utils/localePaths';
 
 export default function Navbar() {
   const { t } = useTranslation('common');
@@ -10,7 +11,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isHome = location.pathname === '/';
+  const lang = getLangFromPath(location.pathname);
+  const isHome = location.pathname === '/' || location.pathname === '/en';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -22,9 +24,9 @@ export default function Navbar() {
     }
   }, [isHome]);
 
-  const goTo = (path: string) => {
+  const goTo = (key: PageKey) => {
     setMobileMenuOpen(false);
-    navigate(path);
+    navigate(pagePath(key, lang));
   };
 
   return (
@@ -38,7 +40,7 @@ export default function Navbar() {
         <div
           data-role="logo"
           className="flex items-center gap-2 cursor-pointer"
-          onClick={() => goTo('/')}
+          onClick={() => goTo('home')}
         >
           <Heart className={scrolled ? 'text-rose-500' : 'text-rose-200'} size={24} />
           <span className={`font-sans text-xl tracking-tight ${scrolled ? 'text-stone-900 font-medium' : 'text-white font-light'}`}>
@@ -50,35 +52,35 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-8">
           <button
             id="nav-link-services-x2n8p1m3"
-            onClick={() => goTo('/servicios')}
+            onClick={() => goTo('services')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.services')}
           </button>
           <button
             id="nav-link-about-k7j2l4p9"
-            onClick={() => goTo('/nuestra-historia')}
+            onClick={() => goTo('about')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.ourStory')}
           </button>
           <button
             id="nav-link-blog-x3n8p1m3"
-            onClick={() => goTo('/blog')}
+            onClick={() => goTo('blog')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.blog')}
           </button>
           <button
             id="nav-link-testimonials-p5t7r9y1"
-            onClick={() => goTo('/testimonios')}
+            onClick={() => goTo('testimonials')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.testimonials')}
           </button>
           <button
             id="nav-link-faq-t4y6u8i0"
-            onClick={() => goTo('/faq')}
+            onClick={() => goTo('faq')}
             className={`text-sm font-medium tracking-wide transition-colors ${scrolled ? 'text-stone-600 hover:text-rose-600' : 'text-white/90 hover:text-white'}`}
           >
             {t('nav.faq')}
@@ -86,7 +88,7 @@ export default function Navbar() {
           <LanguageToggle scrolled={scrolled} />
           <button
             id="nav-cta-btn-q1w2e3r4"
-            onClick={() => goTo('/contacto')}
+            onClick={() => goTo('contact')}
             className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest transition-all ${ scrolled ? 'bg-stone-900 text-white hover:bg-rose-600' : 'bg-white text-stone-900 hover:bg-rose-100' }`}
           >
             {t('nav.getQuote')}
@@ -119,38 +121,38 @@ export default function Navbar() {
         <div className="flex flex-col items-center justify-center h-full gap-8">
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => goTo('/servicios')}
+            onClick={() => goTo('services')}
           >
             {t('nav.servicesMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => goTo('/nuestra-historia')}
+            onClick={() => goTo('about')}
           >
             {t('nav.ourStoryMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => goTo('/blog')}
+            onClick={() => goTo('blog')}
           >
             {t('nav.blogMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => goTo('/testimonios')}
+            onClick={() => goTo('testimonials')}
           >
             {t('nav.testimonialsMobile')}
           </button>
           <button
             className="text-2xl font-light hover: text-white"
-            onClick={() => goTo('/faq')}
+            onClick={() => goTo('faq')}
           >
             {t('nav.faqMobile')}
           </button>
           <LanguageToggle dark />
           <button
             className="mt-4 px-10 py-4 bg-rose-500 rounded-full text-lg font-medium text-white"
-            onClick={() => goTo('/contacto')}
+            onClick={() => goTo('contact')}
           >
             {t('nav.requestPricing')}
           </button>

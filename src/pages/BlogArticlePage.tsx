@@ -1,9 +1,10 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { blogPostsMeta } from '../data/blogPosts';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
+import { pagePath, getLangFromPath } from '../utils/localePaths';
 
 interface BlogPostText {
   title: string;
@@ -69,6 +70,9 @@ const renderBody = (body: string): React.ReactNode[] => {
 const BlogArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
+  const goToBlog = () => navigate(pagePath('blog', lang));
   const { t, i18n } = useTranslation(['blogArticle', 'blogPosts', 'common']);
 
   const translatedPosts = (i18n.getResourceBundle(i18n.language, 'blogPosts') ?? {}) as Record<string, BlogPostText>;
@@ -84,8 +88,7 @@ const BlogArticlePage: React.FC = () => {
 
   useDocumentMeta(
     article ? `${article.title} | WeddingCare Barcelona` : t('blogArticle:notFoundTitle'),
-    article ? article.excerpt : t('blogArticle:notFoundText'),
-    article ? `/blog/${article.slug}` : '/blog'
+    article ? article.excerpt : t('blogArticle:notFoundText')
   );
 
   const containerVariants = {
@@ -131,7 +134,7 @@ const BlogArticlePage: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/blog')}
+            onClick={goToBlog}
             className="px-8 py-3 bg-rose-500 text-white font-semibold rounded-lg hover:bg-rose-600 transition-colors"
           >
             {t('blogArticle:backToBlog')}
@@ -154,7 +157,7 @@ const BlogArticlePage: React.FC = () => {
           <motion.button
             whileHover={{ x: -4 }}
             transition={{ duration: 0.2 }}
-            onClick={() => navigate('/blog')}
+            onClick={goToBlog}
             className="inline-flex items-center text-rose-500 font-semibold hover:text-rose-600 transition-colors"
           >
             <svg
@@ -259,7 +262,7 @@ const BlogArticlePage: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/blog')}
+            onClick={goToBlog}
             className="px-8 py-3 bg-rose-500 text-white font-semibold rounded-lg hover:bg-rose-600 transition-colors shadow-md"
           >
             {t('blogArticle:ctaButton')}

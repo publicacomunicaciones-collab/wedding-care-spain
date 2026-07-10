@@ -5,7 +5,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 export default function FaqPage() {
   const { t } = useTranslation('faq');
-  useDocumentMeta(t('metaTitle'), t('metaDescription'), '/faq');
+  useDocumentMeta(t('metaTitle'), t('metaDescription'));
 
   return (
     <main className="min-h-screen">

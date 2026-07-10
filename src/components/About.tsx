@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ShieldCheck, Baby, Star, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { pagePath, getLangFromPath } from '../utils/localePaths';
 import aboutMediaWebp from '../assets/about-media.webp';
 import aboutMediaFallback from '../assets/about-media.jpg';
 
@@ -20,6 +21,8 @@ interface AboutProps {
 export default function About({ preview = false }: AboutProps) {
   const { t } = useTranslation('about');
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
   const features = t('features', { returnObjects: true }) as AboutFeature[];
 
   return (
@@ -45,7 +48,7 @@ export default function About({ preview = false }: AboutProps) {
 
             {preview ? (
               <button
-                onClick={() => navigate('/nuestra-historia')}
+                onClick={() => navigate(pagePath('about', lang))}
                 className="inline-flex items-center gap-2 text-rose-600 font-semibold hover:text-rose-700 transition-colors"
               >
                 {t('viewMore')} <ArrowRight size={18} />

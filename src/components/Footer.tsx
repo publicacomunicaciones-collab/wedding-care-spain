@@ -1,11 +1,15 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { pagePath, getLangFromPath, type PageKey } from '../utils/localePaths';
 
 export default function Footer() {
   const { t } = useTranslation('footer');
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
+  const goTo = (key: PageKey) => navigate(pagePath(key, lang));
 
   return (
     <footer id="footer-section-v7m2n9x1" className="bg-stone-950 text-stone-400 py-16">
@@ -26,13 +30,13 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-medium mb-6 uppercase text-xs tracking-widest">{t('quickLinks')}</h4>
             <ul className="space-y-4 text-sm">
-              <li><button onClick={() => navigate('/')} className="hover:text-rose-400 transition-colors">{t('home')}</button></li>
-              <li><button onClick={() => navigate('/servicios')} className="hover:text-rose-400 transition-colors">{t('services')}</button></li>
-              <li><button onClick={() => navigate('/nuestra-historia')} className="hover:text-rose-400 transition-colors">{t('ourStory')}</button></li>
-              <li><button onClick={() => navigate('/blog')} className="hover:text-rose-400 transition-colors">{t('blog')}</button></li>
-              <li><button onClick={() => navigate('/testimonios')} className="hover:text-rose-400 transition-colors">{t('testimonials')}</button></li>
-              <li><button onClick={() => navigate('/faq')} className="hover:text-rose-400 transition-colors">{t('faq')}</button></li>
-              <li><button onClick={() => navigate('/contacto')} className="hover:text-rose-400 transition-colors">{t('contact')}</button></li>
+              <li><button onClick={() => goTo('home')} className="hover:text-rose-400 transition-colors">{t('home')}</button></li>
+              <li><button onClick={() => goTo('services')} className="hover:text-rose-400 transition-colors">{t('services')}</button></li>
+              <li><button onClick={() => goTo('about')} className="hover:text-rose-400 transition-colors">{t('ourStory')}</button></li>
+              <li><button onClick={() => goTo('blog')} className="hover:text-rose-400 transition-colors">{t('blog')}</button></li>
+              <li><button onClick={() => goTo('testimonials')} className="hover:text-rose-400 transition-colors">{t('testimonials')}</button></li>
+              <li><button onClick={() => goTo('faq')} className="hover:text-rose-400 transition-colors">{t('faq')}</button></li>
+              <li><button onClick={() => goTo('contact')} className="hover:text-rose-400 transition-colors">{t('contact')}</button></li>
             </ul>
           </div>
 

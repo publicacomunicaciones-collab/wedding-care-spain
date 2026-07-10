@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Star, Quote, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { pagePath, getLangFromPath } from '../utils/localePaths';
 
 interface Testimonial {
   quote: string;
@@ -63,6 +64,8 @@ interface TestimonialsProps {
 export default function Testimonials({ preview = false }: TestimonialsProps) {
   const { t } = useTranslation('testimonials');
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
   const allCouples = t('couples', { returnObjects: true }) as Testimonial[];
   const professionals = t('professionals', { returnObjects: true }) as Testimonial[];
   const couples = preview ? allCouples.slice(0, 3) : allCouples;
@@ -108,7 +111,7 @@ export default function Testimonials({ preview = false }: TestimonialsProps) {
         {preview ? (
           <div className="mt-16 text-center">
             <button
-              onClick={() => navigate('/testimonios')}
+              onClick={() => navigate(pagePath('testimonials', lang))}
               className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-full text-sm font-semibold tracking-widest hover:bg-rose-600 transition-colors"
             >
               {t('viewAll')} <ArrowRight size={18} />

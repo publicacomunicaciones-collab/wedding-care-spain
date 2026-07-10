@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { LANG_STORAGE_KEY } from '../i18n/config';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getAlternatePath, getLangFromPath } from '../utils/localePaths';
 
 interface LanguageToggleProps {
   scrolled?: boolean;
@@ -7,11 +8,14 @@ interface LanguageToggleProps {
 }
 
 export default function LanguageToggle({ scrolled, dark }: LanguageToggleProps) {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentLang = getLangFromPath(location.pathname);
 
   const setLang = (lng: 'en' | 'es') => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem(LANG_STORAGE_KEY, lng);
+    if (lng === currentLang) return;
+    navigate(getAlternatePath(location.pathname, lng));
   };
 
   const isLight = dark ? false : scrolled;
@@ -23,7 +27,7 @@ export default function LanguageToggle({ scrolled, dark }: LanguageToggleProps) 
       }`}
     >
       {(['es', 'en'] as const).map((l) => {
-        const active = i18n.language === l;
+        const active = currentLang === l;
         return (
           <button
             key={l}

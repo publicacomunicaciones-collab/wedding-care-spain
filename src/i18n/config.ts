@@ -29,10 +29,11 @@ import blogPostsEs from './locales/es/blogPosts.json';
 import faqEs from './locales/es/faq.json';
 import testimonialsEs from './locales/es/testimonials.json';
 
-export const LANG_STORAGE_KEY = 'wc-lang';
-
-const stored = localStorage.getItem(LANG_STORAGE_KEY);
-const initialLng = stored === 'en' || stored === 'es' ? stored : 'es';
+// The URL is the source of truth for language (see localePaths.ts /
+// LocaleSync.tsx): /en/... is English, everything else is Spanish.
+// Read it directly here so the very first render already uses the
+// right language, with no flash of the wrong locale.
+const initialLng = window.location.pathname.startsWith('/en') ? 'en' : 'es';
 
 i18n.use(initReactI18next).init({
   resources: {

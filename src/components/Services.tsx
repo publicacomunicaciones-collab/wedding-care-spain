@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { CheckCircle2, Clock, Users, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { packagesMeta } from '../data/packages';
+import { pagePath, getLangFromPath } from '../utils/localePaths';
 
 interface PackageText {
   name: string;
@@ -20,6 +21,8 @@ interface ServicesProps {
 export default function Services({ preview = false }: ServicesProps) {
   const { t } = useTranslation('services');
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = getLangFromPath(location.pathname);
   const translatedPackages = t('packages', { returnObjects: true }) as Record<string, PackageText>;
   const packages = packagesMeta.map((meta) => ({ ...meta, ...translatedPackages[meta.id] }));
 
@@ -100,7 +103,7 @@ export default function Services({ preview = false }: ServicesProps) {
                   </ul>
 
                   <button
-                    onClick={() => navigate('/contacto')}
+                    onClick={() => navigate(pagePath('contact', lang))}
                     className={`w-full mt-12 py-4 rounded-xl text-sm font-semibold tracking-widest transition-colors ${
                       pkg.highlight
                         ? 'bg-white text-stone-900 hover:bg-stone-100'
@@ -118,7 +121,7 @@ export default function Services({ preview = false }: ServicesProps) {
         {preview ? (
           <div className="mt-16 text-center">
             <button
-              onClick={() => navigate('/servicios')}
+              onClick={() => navigate(pagePath('services', lang))}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-stone-900 rounded-full text-sm font-semibold tracking-widest hover:bg-rose-100 transition-colors"
             >
               {t('viewAll')} <ArrowRight size={18} />
